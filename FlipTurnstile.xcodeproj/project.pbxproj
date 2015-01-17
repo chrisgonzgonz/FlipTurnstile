@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */; };
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
-		7272DB111A6B1F1900423929 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB101A6B1F1900423929 /* ViewController.m */; };
-		7272DB141A6B1F1900423929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB121A6B1F1900423929 /* Main.storyboard */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
-		7272DB191A6B1F1900423929 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB171A6B1F1900423929 /* LaunchScreen.xib */; };
-		7272DB251A6B1F1900423929 /* FlipTurnstileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB241A6B1F1900423929 /* FlipTurnstileTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +29,12 @@
 		7272DB0A1A6B1F1900423929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7272DB0C1A6B1F1900423929 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7272DB0D1A6B1F1900423929 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7272DB0F1A6B1F1900423929 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7272DB101A6B1F1900423929 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7272DB131A6B1F1900423929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7272DB151A6B1F1900423929 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7272DB181A6B1F1900423929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7272DB1E1A6B1F1900423929 /* FlipTurnstileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipTurnstileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB231A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7272DB241A6B1F1900423929 /* FlipTurnstileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipTurnstileTests.m; sourceTree = "<group>"; };
+		A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.release.xcconfig"; sourceTree = "<group>"; };
+		DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlipTurnstileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,18 +49,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA06FA1149209ED9D0337DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */,
+				B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7272DAFC1A6B1F1900423929 = {
 			isa = PBXGroup;
 			children = (
 				7272DB071A6B1F1900423929 /* FlipTurnstile */,
 				7272DB211A6B1F1900423929 /* FlipTurnstileTests */,
 				7272DB061A6B1F1900423929 /* Products */,
+				5AA06FA1149209ED9D0337DB /* Pods */,
+				D61DB4B8E702CF04F37FB850 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,11 +90,7 @@
 			children = (
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
-				7272DB0F1A6B1F1900423929 /* ViewController.h */,
-				7272DB101A6B1F1900423929 /* ViewController.m */,
-				7272DB121A6B1F1900423929 /* Main.storyboard */,
 				7272DB151A6B1F1900423929 /* Images.xcassets */,
-				7272DB171A6B1F1900423929 /* LaunchScreen.xib */,
 				7272DB081A6B1F1900423929 /* Supporting Files */,
 			);
 			path = FlipTurnstile;
@@ -105,7 +108,6 @@
 		7272DB211A6B1F1900423929 /* FlipTurnstileTests */ = {
 			isa = PBXGroup;
 			children = (
-				7272DB241A6B1F1900423929 /* FlipTurnstileTests.m */,
 				7272DB221A6B1F1900423929 /* Supporting Files */,
 			);
 			path = FlipTurnstileTests;
@@ -117,6 +119,14 @@
 				7272DB231A6B1F1900423929 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D61DB4B8E702CF04F37FB850 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7272DB2B1A6B1F1900423929 /* Build configuration list for PBXNativeTarget "FlipTurnstileTests" */;
 			buildPhases = (
+				912539CE8680FE95F46D0A0C /* Check Pods Manifest.lock */,
 				7272DB1A1A6B1F1900423929 /* Sources */,
 				7272DB1B1A6B1F1900423929 /* Frameworks */,
 				7272DB1C1A6B1F1900423929 /* Resources */,
+				22CB6239C687D94572A8B298 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,8 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7272DB141A6B1F1900423929 /* Main.storyboard in Resources */,
-				7272DB191A6B1F1900423929 /* LaunchScreen.xib in Resources */,
 				7272DB161A6B1F1900423929 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,12 +224,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22CB6239C687D94572A8B298 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		912539CE8680FE95F46D0A0C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7272DB011A6B1F1900423929 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7272DB111A6B1F1900423929 /* ViewController.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
 			);
@@ -229,7 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7272DB251A6B1F1900423929 /* FlipTurnstileTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,25 +283,6 @@
 			targetProxy = 7272DB1F1A6B1F1900423929 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7272DB121A6B1F1900423929 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7272DB131A6B1F1900423929 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7272DB171A6B1F1900423929 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7272DB181A6B1F1900423929 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7272DB261A6B1F1900423929 /* Debug */ = {
@@ -361,6 +383,7 @@
 		};
 		7272DB2C1A6B1F1900423929 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -380,6 +403,7 @@
 		};
 		7272DB2D1A6B1F1900423929 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -412,6 +436,7 @@
 				7272DB2A1A6B1F1900423929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7272DB2B1A6B1F1900423929 /* Build configuration list for PBXNativeTarget "FlipTurnstileTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +445,7 @@
 				7272DB2D1A6B1F1900423929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
