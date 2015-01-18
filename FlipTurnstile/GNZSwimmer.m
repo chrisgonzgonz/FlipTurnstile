@@ -1,17 +1,17 @@
 //
-//  Swimmer.m
+//  GNZSwimmer.m
 //  FlipTurnstile
 //
 //  Created by Chris Gonzales on 1/18/15.
 //  Copyright (c) 2015 GNZ. All rights reserved.
 //
 
-#import "Swimmer.h"
-#import "Attendance.h"
-#import "PaymentOption.h"
+#import "GNZSwimmer.h"
+#import "GNZAttendance.h"
+#import "GNZPaymentOption.h"
 
 
-@implementation Swimmer
+@implementation GNZSwimmer
 
 @dynamic email;
 @dynamic firstName;

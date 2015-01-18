@@ -1,5 +1,5 @@
 //
-//  Swimmer.h
+//  GNZSwimmer.h
 //  FlipTurnstile
 //
 //  Created by Chris Gonzales on 1/18/15.
@@ -9,27 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Attendance, PaymentOption;
+@class GNZAttendance, GNZPaymentOption;
 
-@interface Swimmer : NSManagedObject
+@interface GNZSwimmer : NSManagedObject
 
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSOrderedSet *attendances;
-@property (nonatomic, retain) PaymentOption *paymentOption;
+@property (nonatomic, retain) GNZPaymentOption *paymentOption;
 @end
 
-@interface Swimmer (CoreDataGeneratedAccessors)
+@interface GNZSwimmer (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(Attendance *)value inAttendancesAtIndex:(NSUInteger)idx;
+- (void)insertObject:(GNZAttendance *)value inAttendancesAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromAttendancesAtIndex:(NSUInteger)idx;
 - (void)insertAttendances:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
 - (void)removeAttendancesAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInAttendancesAtIndex:(NSUInteger)idx withObject:(Attendance *)value;
+- (void)replaceObjectInAttendancesAtIndex:(NSUInteger)idx withObject:(GNZAttendance *)value;
 - (void)replaceAttendancesAtIndexes:(NSIndexSet *)indexes withAttendances:(NSArray *)values;
-- (void)addAttendancesObject:(Attendance *)value;
-- (void)removeAttendancesObject:(Attendance *)value;
+- (void)addAttendancesObject:(GNZAttendance *)value;
+- (void)removeAttendancesObject:(GNZAttendance *)value;
 - (void)addAttendances:(NSOrderedSet *)values;
 - (void)removeAttendances:(NSOrderedSet *)values;
 @end

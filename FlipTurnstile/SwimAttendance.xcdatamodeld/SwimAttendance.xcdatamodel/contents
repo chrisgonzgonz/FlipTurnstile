@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Attendance" representedClassName="Attendance" syncable="YES">
+    <entity name="GNZAttendance" representedClassName="GNZAttendance" syncable="YES">
         <attribute name="practiceDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="quarter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quarter" inverseName="attendances" inverseEntity="Quarter" syncable="YES"/>
-        <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Swimmer" inverseName="attendances" inverseEntity="Swimmer" syncable="YES"/>
+        <relationship name="quarter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GNZQuarter" inverseName="attendances" inverseEntity="GNZQuarter" syncable="YES"/>
+        <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GNZSwimmer" inverseName="attendances" inverseEntity="GNZSwimmer" syncable="YES"/>
     </entity>
-    <entity name="PaymentOption" representedClassName="PaymentOption" syncable="YES">
+    <entity name="GNZPaymentOption" representedClassName="GNZPaymentOption" syncable="YES">
         <attribute name="purchaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Swimmer" inverseName="paymentOption" inverseEntity="Swimmer" syncable="YES"/>
+        <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GNZSwimmer" inverseName="paymentOption" inverseEntity="GNZSwimmer" syncable="YES"/>
     </entity>
-    <entity name="Quarter" representedClassName="Quarter" syncable="YES">
+    <entity name="GNZQuarter" representedClassName="GNZQuarter" syncable="YES">
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="quarter" inverseEntity="Attendance" syncable="YES"/>
+        <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GNZAttendance" inverseName="quarter" inverseEntity="GNZAttendance" syncable="YES"/>
+        <relationship name="paymentOptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GNZPaymentOption" syncable="YES"/>
     </entity>
-    <entity name="Swimmer" representedClassName="Swimmer" syncable="YES">
+    <entity name="GNZRoster" representedClassName="GNZRoster" syncable="YES">
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quarters" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GNZQuarter" syncable="YES"/>
+        <relationship name="swimmers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GNZSwimmer" syncable="YES"/>
+    </entity>
+    <entity name="GNZSwimmer" representedClassName="GNZSwimmer" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Attendance" inverseName="swimmer" inverseEntity="Attendance" syncable="YES"/>
-        <relationship name="paymentOption" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PaymentOption" inverseName="swimmer" inverseEntity="PaymentOption" syncable="YES"/>
+        <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="GNZAttendance" inverseName="swimmer" inverseEntity="GNZAttendance" syncable="YES"/>
+        <relationship name="paymentOption" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="GNZPaymentOption" inverseName="swimmer" inverseEntity="GNZPaymentOption" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Quarter" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Swimmer" positionX="-63" positionY="167" width="128" height="118"/>
-        <element name="Attendance" positionX="396" positionY="20" width="128" height="88"/>
-        <element name="PaymentOption" positionX="169" positionY="342" width="128" height="88"/>
+        <element name="GNZAttendance" positionX="396" positionY="20" width="128" height="90"/>
+        <element name="GNZPaymentOption" positionX="108" positionY="74" width="128" height="88"/>
+        <element name="GNZQuarter" positionX="133" positionY="-270" width="128" height="118"/>
+        <element name="GNZSwimmer" positionX="-108" positionY="240" width="128" height="120"/>
+        <element name="GNZRoster" positionX="-126" positionY="-34" width="128" height="73"/>
     </elements>
 </model>

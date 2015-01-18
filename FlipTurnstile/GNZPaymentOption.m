@@ -1,16 +1,16 @@
 //
-//  PaymentOption.m
+//  GNZPaymentOption.m
 //  FlipTurnstile
 //
 //  Created by Chris Gonzales on 1/18/15.
 //  Copyright (c) 2015 GNZ. All rights reserved.
 //
 
-#import "PaymentOption.h"
-#import "Swimmer.h"
+#import "GNZPaymentOption.h"
+#import "GNZSwimmer.h"
 
 
-@implementation PaymentOption
+@implementation GNZPaymentOption
 
 @dynamic purchaseDate;
 @dynamic type;

@@ -1,5 +1,5 @@
 //
-//  Attendance.h
+//  GNZAttendance.h
 //  FlipTurnstile
 //
 //  Created by Chris Gonzales on 1/18/15.
@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Quarter, Swimmer;
+@class GNZQuarter, GNZSwimmer;
 
-@interface Attendance : NSManagedObject
+@interface GNZAttendance : NSManagedObject
 
 @property (nonatomic, retain) NSDate * practiceDate;
-@property (nonatomic, retain) Quarter *quarter;
-@property (nonatomic, retain) Swimmer *swimmer;
+@property (nonatomic, retain) GNZQuarter *quarter;
+@property (nonatomic, retain) GNZSwimmer *swimmer;
 
 @end

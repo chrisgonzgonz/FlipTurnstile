@@ -1,5 +1,5 @@
 //
-//  PaymentOption.h
+//  GNZPaymentOption.h
 //  FlipTurnstile
 //
 //  Created by Chris Gonzales on 1/18/15.
@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Swimmer;
+@class GNZSwimmer;
 
-@interface PaymentOption : NSManagedObject
+@interface GNZPaymentOption : NSManagedObject
 
 @property (nonatomic, retain) NSDate * purchaseDate;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) Swimmer *swimmer;
+@property (nonatomic, retain) GNZSwimmer *swimmer;
 
 @end

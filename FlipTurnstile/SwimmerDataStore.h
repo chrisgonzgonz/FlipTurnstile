@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@class GNZRoster;
 
 @interface SwimmerDataStore : NSObject
 
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, readonly) GNZRoster *roster;
 
 + (instancetype)sharedStore;
+- (void)loadData;
 @end

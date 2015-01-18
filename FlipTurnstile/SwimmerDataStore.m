@@ -7,7 +7,11 @@
 //
 
 #import "SwimmerDataStore.h"
+#import "GNZRoster.h"
 
+@interface SwimmerDataStore ()
+@property (strong, readwrite) GNZRoster *roster;
+@end
 @implementation SwimmerDataStore
 
 + (instancetype)sharedStore {
@@ -55,5 +59,17 @@
 
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (void)loadData {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"GNZRoster"];
+    self.roster =[[self.managedObjectContext executeFetchRequest:request error:nil] firstObject];
+}
+
+- (GNZRoster *)roster {
+    if (!_roster) {
+        GNZRoster *newRoster = [NSEntityDescription insertNewObjectForEntityForName:@"GNZRoster" inManagedObjectContext:self.managedObjectContext];
+        
+    }
 }
 @end
