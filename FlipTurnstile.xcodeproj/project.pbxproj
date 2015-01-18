@@ -12,6 +12,7 @@
 		725FE56C1A6C106500781EFF /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE56B1A6C106500781EFF /* Attendance.m */; };
 		725FE56F1A6C106500781EFF /* Swimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE56E1A6C106500781EFF /* Swimmer.m */; };
 		725FE5721A6C106500781EFF /* Quarter.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5711A6C106500781EFF /* Quarter.m */; };
+		725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5761A6C317C00781EFF /* GNZRosterViewController.m */; };
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
@@ -40,6 +41,8 @@
 		725FE56E1A6C106500781EFF /* Swimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swimmer.m; sourceTree = "<group>"; };
 		725FE5701A6C106500781EFF /* Quarter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quarter.h; sourceTree = "<group>"; };
 		725FE5711A6C106500781EFF /* Quarter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quarter.m; sourceTree = "<group>"; };
+		725FE5751A6C317C00781EFF /* GNZRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterViewController.h; sourceTree = "<group>"; };
+		725FE5761A6C317C00781EFF /* GNZRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterViewController.m; sourceTree = "<group>"; };
 		7272DB051A6B1F1900423929 /* FlipTurnstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipTurnstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB091A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7272DB0A1A6B1F1900423929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +113,15 @@
 			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
+		725FE5781A6C31F100781EFF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				725FE5751A6C317C00781EFF /* GNZRosterViewController.h */,
+				725FE5761A6C317C00781EFF /* GNZRosterViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		7272DAFC1A6B1F1900423929 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 			children = (
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
+				725FE5781A6C31F100781EFF /* Controllers */,
 				7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */,
 				725FE5731A6C108400781EFF /* Models */,
 				7272DB3F1A6C08C400423929 /* SwimmerDataStore.h */,
@@ -315,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725FE5721A6C106500781EFF /* Quarter.m in Sources */,
+				725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */,
 				7272DB411A6C08C400423929 /* SwimmerDataStore.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
 				725FE56C1A6C106500781EFF /* Attendance.m in Sources */,

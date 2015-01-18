@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GNZRosterViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,11 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    GNZRosterViewController *rosterVC = [[GNZRosterViewController alloc] init];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rosterVC];
+    self.window.rootViewController = navVC;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
