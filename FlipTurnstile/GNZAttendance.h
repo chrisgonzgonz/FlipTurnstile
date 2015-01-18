@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class GNZQuarter, GNZSwimmer;
+@class GNZSwimmer;
 
 @interface GNZAttendance : NSManagedObject
 
 @property (nonatomic, retain) NSDate * practiceDate;
-@property (nonatomic, retain) GNZQuarter *quarter;
 @property (nonatomic, retain) GNZSwimmer *swimmer;
 
 @end

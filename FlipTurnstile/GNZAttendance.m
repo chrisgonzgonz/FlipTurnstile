@@ -7,14 +7,12 @@
 //
 
 #import "GNZAttendance.h"
-#import "GNZQuarter.h"
 #import "GNZSwimmer.h"
 
 
 @implementation GNZAttendance
 
 @dynamic practiceDate;
-@dynamic quarter;
 @dynamic swimmer;
 
 @end

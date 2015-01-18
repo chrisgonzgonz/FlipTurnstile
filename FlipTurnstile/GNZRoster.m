@@ -7,14 +7,12 @@
 //
 
 #import "GNZRoster.h"
-#import "GNZQuarter.h"
 #import "GNZSwimmer.h"
 
 
 @implementation GNZRoster
 
-@dynamic teamName;
-@dynamic quarters;
+@dynamic endDate;
 @dynamic swimmers;
 
 @end

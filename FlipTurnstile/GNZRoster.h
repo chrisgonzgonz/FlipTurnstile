@@ -9,21 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class GNZQuarter, GNZSwimmer;
+@class GNZSwimmer;
 
 @interface GNZRoster : NSManagedObject
 
-@property (nonatomic, retain) NSString * teamName;
-@property (nonatomic, retain) NSSet *quarters;
+@property (nonatomic, retain) NSDate * endDate;
 @property (nonatomic, retain) NSSet *swimmers;
 @end
 
 @interface GNZRoster (CoreDataGeneratedAccessors)
-
-- (void)addQuartersObject:(GNZQuarter *)value;
-- (void)removeQuartersObject:(GNZQuarter *)value;
-- (void)addQuarters:(NSSet *)values;
-- (void)removeQuarters:(NSSet *)values;
 
 - (void)addSwimmersObject:(GNZSwimmer *)value;
 - (void)removeSwimmersObject:(GNZSwimmer *)value;

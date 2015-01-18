@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class GNZAttendance, GNZPaymentOption;
+@class GNZAttendance;
 
 @interface GNZSwimmer : NSManagedObject
 
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSNumber * paymentOption;
 @property (nonatomic, retain) NSOrderedSet *attendances;
-@property (nonatomic, retain) GNZPaymentOption *paymentOption;
 @end
 
 @interface GNZSwimmer (CoreDataGeneratedAccessors)

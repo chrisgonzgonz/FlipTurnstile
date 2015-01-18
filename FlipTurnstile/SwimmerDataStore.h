@@ -15,8 +15,9 @@
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, readonly) GNZRoster *roster;
+@property (strong, readonly, nonatomic) GNZRoster *roster;
 
 + (instancetype)sharedStore;
 - (void)loadData;
+- (NSURL *)applicationDocumentsDirectory;
 @end

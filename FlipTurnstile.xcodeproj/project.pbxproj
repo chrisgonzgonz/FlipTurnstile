@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */; };
 		725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5761A6C317C00781EFF /* GNZRosterViewController.m */; };
-		725FE5881A6C3FF400781EFF /* GNZQuarter.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5871A6C3FF400781EFF /* GNZQuarter.m */; };
-		725FE58B1A6C3FF500781EFF /* GNZAttendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE58A1A6C3FF500781EFF /* GNZAttendance.m */; };
-		725FE58E1A6C3FF500781EFF /* GNZPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE58D1A6C3FF500781EFF /* GNZPaymentOption.m */; };
-		725FE5911A6C3FF500781EFF /* GNZSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5901A6C3FF500781EFF /* GNZSwimmer.m */; };
-		725FE5941A6C449400781EFF /* GNZRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5931A6C449400781EFF /* GNZRoster.m */; };
+		725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5961A6C54FC00781EFF /* GNZRoster.m */; };
+		725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5991A6C54FD00781EFF /* GNZSwimmer.m */; };
+		725FE59D1A6C54FD00781EFF /* GNZAttendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE59C1A6C54FD00781EFF /* GNZAttendance.m */; };
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
@@ -36,16 +34,12 @@
 /* Begin PBXFileReference section */
 		725FE5751A6C317C00781EFF /* GNZRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterViewController.h; sourceTree = "<group>"; };
 		725FE5761A6C317C00781EFF /* GNZRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterViewController.m; sourceTree = "<group>"; };
-		725FE5861A6C3FF400781EFF /* GNZQuarter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZQuarter.h; sourceTree = "<group>"; };
-		725FE5871A6C3FF400781EFF /* GNZQuarter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZQuarter.m; sourceTree = "<group>"; };
-		725FE5891A6C3FF500781EFF /* GNZAttendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZAttendance.h; sourceTree = "<group>"; };
-		725FE58A1A6C3FF500781EFF /* GNZAttendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZAttendance.m; sourceTree = "<group>"; };
-		725FE58C1A6C3FF500781EFF /* GNZPaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZPaymentOption.h; sourceTree = "<group>"; };
-		725FE58D1A6C3FF500781EFF /* GNZPaymentOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZPaymentOption.m; sourceTree = "<group>"; };
-		725FE58F1A6C3FF500781EFF /* GNZSwimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSwimmer.h; sourceTree = "<group>"; };
-		725FE5901A6C3FF500781EFF /* GNZSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSwimmer.m; sourceTree = "<group>"; };
-		725FE5921A6C449400781EFF /* GNZRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRoster.h; sourceTree = "<group>"; };
-		725FE5931A6C449400781EFF /* GNZRoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRoster.m; sourceTree = "<group>"; };
+		725FE5951A6C54FC00781EFF /* GNZRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRoster.h; sourceTree = "<group>"; };
+		725FE5961A6C54FC00781EFF /* GNZRoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRoster.m; sourceTree = "<group>"; };
+		725FE5981A6C54FD00781EFF /* GNZSwimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSwimmer.h; sourceTree = "<group>"; };
+		725FE5991A6C54FD00781EFF /* GNZSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSwimmer.m; sourceTree = "<group>"; };
+		725FE59B1A6C54FD00781EFF /* GNZAttendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZAttendance.h; sourceTree = "<group>"; };
+		725FE59C1A6C54FD00781EFF /* GNZAttendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZAttendance.m; sourceTree = "<group>"; };
 		7272DB051A6B1F1900423929 /* FlipTurnstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipTurnstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB091A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7272DB0A1A6B1F1900423929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,16 +98,12 @@
 		725FE5741A6C108C00781EFF /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				725FE5921A6C449400781EFF /* GNZRoster.h */,
-				725FE5931A6C449400781EFF /* GNZRoster.m */,
-				725FE58F1A6C3FF500781EFF /* GNZSwimmer.h */,
-				725FE5901A6C3FF500781EFF /* GNZSwimmer.m */,
-				725FE58C1A6C3FF500781EFF /* GNZPaymentOption.h */,
-				725FE58D1A6C3FF500781EFF /* GNZPaymentOption.m */,
-				725FE5891A6C3FF500781EFF /* GNZAttendance.h */,
-				725FE58A1A6C3FF500781EFF /* GNZAttendance.m */,
-				725FE5861A6C3FF400781EFF /* GNZQuarter.h */,
-				725FE5871A6C3FF400781EFF /* GNZQuarter.m */,
+				725FE59B1A6C54FD00781EFF /* GNZAttendance.h */,
+				725FE59C1A6C54FD00781EFF /* GNZAttendance.m */,
+				725FE5981A6C54FD00781EFF /* GNZSwimmer.h */,
+				725FE5991A6C54FD00781EFF /* GNZSwimmer.m */,
+				725FE5951A6C54FC00781EFF /* GNZRoster.h */,
+				725FE5961A6C54FC00781EFF /* GNZRoster.m */,
 			);
 			name = "Managed Objects";
 			sourceTree = "<group>";
@@ -332,16 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725FE59D1A6C54FD00781EFF /* GNZAttendance.m in Sources */,
 				725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */,
-				725FE5881A6C3FF400781EFF /* GNZQuarter.m in Sources */,
-				725FE5911A6C3FF500781EFF /* GNZSwimmer.m in Sources */,
 				7272DB411A6C08C400423929 /* SwimmerDataStore.m in Sources */,
+				725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */,
+				725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
-				725FE58B1A6C3FF500781EFF /* GNZAttendance.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
 				7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */,
-				725FE5941A6C449400781EFF /* GNZRoster.m in Sources */,
-				725FE58E1A6C3FF500781EFF /* GNZPaymentOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

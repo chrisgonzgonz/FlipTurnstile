@@ -7,6 +7,7 @@
 //
 
 #import "GNZRosterViewController.h"
+#import "SwimmerDataStore.h"
 
 @interface GNZRosterViewController ()
 
@@ -19,6 +20,8 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"Roster";
     [self addTableView];
+    [[SwimmerDataStore sharedStore] roster];
+    NSLog(@"%@", [[SwimmerDataStore sharedStore] applicationDocumentsDirectory]);
 }
 
 - (void)didReceiveMemoryWarning {

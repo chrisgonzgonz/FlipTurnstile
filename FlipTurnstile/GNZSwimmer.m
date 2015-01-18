@@ -8,7 +8,6 @@
 
 #import "GNZSwimmer.h"
 #import "GNZAttendance.h"
-#import "GNZPaymentOption.h"
 
 
 @implementation GNZSwimmer
@@ -16,7 +15,7 @@
 @dynamic email;
 @dynamic firstName;
 @dynamic lastName;
-@dynamic attendances;
 @dynamic paymentOption;
+@dynamic attendances;
 
 @end

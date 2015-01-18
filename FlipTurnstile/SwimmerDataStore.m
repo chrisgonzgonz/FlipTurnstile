@@ -8,9 +8,10 @@
 
 #import "SwimmerDataStore.h"
 #import "GNZRoster.h"
+#import "GNZSwimmer.h"
 
 @interface SwimmerDataStore ()
-@property (strong, readwrite) GNZRoster *roster;
+@property (strong, readwrite, nonatomic) GNZRoster *roster;
 @end
 @implementation SwimmerDataStore
 
@@ -35,6 +36,14 @@
     }
     
     return _managedObjectContext;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    if (!_managedObjectModel) {
+        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SwimAttendance" withExtension:@"momd"];
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    }
+    return _managedObjectModel;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
@@ -67,9 +76,23 @@
 }
 
 - (GNZRoster *)roster {
+    [self loadData];
     if (!_roster) {
         GNZRoster *newRoster = [NSEntityDescription insertNewObjectForEntityForName:@"GNZRoster" inManagedObjectContext:self.managedObjectContext];
         
+        NSDictionary *swimmers = @{@"Chris": @{@"lastName": @"Gonzales", @"paymentOption": @1000}, @"Marc": @{@"lastName": @"Gershel", @"paymentOption": @10}, @"Megan": @{@"lastName": @"Jones", @"paymentOption": @8}};
+        for (NSString *key in swimmers) {
+            GNZSwimmer *newSwimmer = [NSEntityDescription insertNewObjectForEntityForName:@"GNZSwimmer" inManagedObjectContext:self.managedObjectContext];
+            newSwimmer.email = [NSString stringWithFormat:@"%@@gmail.com", key];
+            newSwimmer.firstName = key;
+            newSwimmer.lastName = swimmers[key][@"lastName"];
+            newSwimmer.paymentOption = swimmers[key][@"paymentOption"];
+            
+            [newRoster addSwimmersObject:newSwimmer];
+        }
+        [self.managedObjectContext save:nil];
+        [self loadData];
     }
+    return _roster;
 }
 @end
