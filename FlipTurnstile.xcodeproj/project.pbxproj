@@ -11,6 +11,7 @@
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
+		7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		7272DB151A6B1F1900423929 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7272DB1E1A6B1F1900423929 /* FlipTurnstileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipTurnstileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB231A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7272DB3D1A6BFFFA00423929 /* SwimAttendance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwimAttendance.xcdatamodel; sourceTree = "<group>"; };
 		A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlipTurnstileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 			children = (
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
+				7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */,
 				7272DB151A6B1F1900423929 /* Images.xcassets */,
 				7272DB081A6B1F1900423929 /* Supporting Files */,
 			);
@@ -264,6 +267,7 @@
 			files = (
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
+				7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +452,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7272DB3D1A6BFFFA00423929 /* SwimAttendance.xcdatamodel */,
+			);
+			currentVersion = 7272DB3D1A6BFFFA00423929 /* SwimAttendance.xcdatamodel */;
+			path = SwimAttendance.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7272DAFD1A6B1F1900423929 /* Project object */;
 }
