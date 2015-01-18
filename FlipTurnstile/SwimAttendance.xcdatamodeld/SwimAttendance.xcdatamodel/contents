@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Attendance" syncable="YES">
+    <entity name="Attendance" representedClassName="Attendance" syncable="YES">
         <attribute name="practiceDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="quarter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quarter" inverseName="attendances" inverseEntity="Quarter" syncable="YES"/>
         <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Swimmer" inverseName="attendances" inverseEntity="Swimmer" syncable="YES"/>
     </entity>
-    <entity name="PaymentOption" syncable="YES">
+    <entity name="PaymentOption" representedClassName="PaymentOption" syncable="YES">
+        <attribute name="purchaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Swimmer" inverseName="paymentOption" inverseEntity="Swimmer" syncable="YES"/>
     </entity>
-    <entity name="Quarter" syncable="YES">
+    <entity name="Quarter" representedClassName="Quarter" syncable="YES">
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="quarter" inverseEntity="Attendance" syncable="YES"/>
     </entity>
-    <entity name="Swimmer" syncable="YES">
+    <entity name="Swimmer" representedClassName="Swimmer" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,6 +27,6 @@
         <element name="Quarter" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Swimmer" positionX="-63" positionY="167" width="128" height="118"/>
         <element name="Attendance" positionX="396" positionY="20" width="128" height="88"/>
-        <element name="PaymentOption" positionX="169" positionY="342" width="128" height="73"/>
+        <element name="PaymentOption" positionX="169" positionY="342" width="128" height="88"/>
     </elements>
 </model>

@@ -8,10 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */; };
+		725FE5691A6C106400781EFF /* PaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5681A6C106400781EFF /* PaymentOption.m */; };
+		725FE56C1A6C106500781EFF /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE56B1A6C106500781EFF /* Attendance.m */; };
+		725FE56F1A6C106500781EFF /* Swimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE56E1A6C106500781EFF /* Swimmer.m */; };
+		725FE5721A6C106500781EFF /* Quarter.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5711A6C106500781EFF /* Quarter.m */; };
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
 		7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */; };
+		7272DB411A6C08C400423929 /* SwimmerDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB401A6C08C400423929 /* SwimmerDataStore.m */; };
+		7272DB431A6C091100423929 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7272DB421A6C091100423929 /* CoreData.framework */; };
+		7272DB451A6C0E8300423929 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB441A6C0E8300423929 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		725FE5671A6C106400781EFF /* PaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentOption.h; sourceTree = "<group>"; };
+		725FE5681A6C106400781EFF /* PaymentOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentOption.m; sourceTree = "<group>"; };
+		725FE56A1A6C106500781EFF /* Attendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendance.h; sourceTree = "<group>"; };
+		725FE56B1A6C106500781EFF /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
+		725FE56D1A6C106500781EFF /* Swimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swimmer.h; sourceTree = "<group>"; };
+		725FE56E1A6C106500781EFF /* Swimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swimmer.m; sourceTree = "<group>"; };
+		725FE5701A6C106500781EFF /* Quarter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quarter.h; sourceTree = "<group>"; };
+		725FE5711A6C106500781EFF /* Quarter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quarter.m; sourceTree = "<group>"; };
 		7272DB051A6B1F1900423929 /* FlipTurnstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipTurnstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB091A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7272DB0A1A6B1F1900423929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,6 +49,10 @@
 		7272DB1E1A6B1F1900423929 /* FlipTurnstileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipTurnstileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB231A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7272DB3D1A6BFFFA00423929 /* SwimAttendance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwimAttendance.xcdatamodel; sourceTree = "<group>"; };
+		7272DB3F1A6C08C400423929 /* SwimmerDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwimmerDataStore.h; sourceTree = "<group>"; };
+		7272DB401A6C08C400423929 /* SwimmerDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwimmerDataStore.m; sourceTree = "<group>"; };
+		7272DB421A6C091100423929 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7272DB441A6C0E8300423929 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlipTurnstileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7272DB431A6C091100423929 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +87,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		725FE5731A6C108400781EFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				725FE5741A6C108C00781EFF /* Managed Objects */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		725FE5741A6C108C00781EFF /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				725FE5701A6C106500781EFF /* Quarter.h */,
+				725FE5711A6C106500781EFF /* Quarter.m */,
+				725FE56D1A6C106500781EFF /* Swimmer.h */,
+				725FE56E1A6C106500781EFF /* Swimmer.m */,
+				725FE56A1A6C106500781EFF /* Attendance.h */,
+				725FE56B1A6C106500781EFF /* Attendance.m */,
+				725FE5671A6C106400781EFF /* PaymentOption.h */,
+				725FE5681A6C106400781EFF /* PaymentOption.m */,
+			);
+			name = "Managed Objects";
+			sourceTree = "<group>";
+		};
 		7272DAFC1A6B1F1900423929 = {
 			isa = PBXGroup;
 			children = (
+				7272DB441A6C0E8300423929 /* Default-568h@2x.png */,
 				7272DB071A6B1F1900423929 /* FlipTurnstile */,
 				7272DB211A6B1F1900423929 /* FlipTurnstileTests */,
 				7272DB061A6B1F1900423929 /* Products */,
@@ -93,6 +137,9 @@
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
 				7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */,
+				725FE5731A6C108400781EFF /* Models */,
+				7272DB3F1A6C08C400423929 /* SwimmerDataStore.h */,
+				7272DB401A6C08C400423929 /* SwimmerDataStore.m */,
 				7272DB151A6B1F1900423929 /* Images.xcassets */,
 				7272DB081A6B1F1900423929 /* Supporting Files */,
 			);
@@ -127,6 +174,7 @@
 		D61DB4B8E702CF04F37FB850 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7272DB421A6C091100423929 /* CoreData.framework */,
 				DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */,
 			);
 			name = Frameworks;
@@ -215,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7272DB161A6B1F1900423929 /* Images.xcassets in Resources */,
+				7272DB451A6C0E8300423929 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725FE5721A6C106500781EFF /* Quarter.m in Sources */,
+				7272DB411A6C08C400423929 /* SwimmerDataStore.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
+				725FE56C1A6C106500781EFF /* Attendance.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
+				725FE5691A6C106400781EFF /* PaymentOption.m in Sources */,
 				7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */,
+				725FE56F1A6C106500781EFF /* Swimmer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
