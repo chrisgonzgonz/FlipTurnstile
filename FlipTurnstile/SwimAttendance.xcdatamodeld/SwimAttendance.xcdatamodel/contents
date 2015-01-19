@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="GNZAttendance" representedClassName="GNZAttendance" syncable="YES">
-        <attribute name="practiceDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="practiceDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
         <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GNZSwimmer" inverseName="attendances" inverseEntity="GNZSwimmer" syncable="YES"/>
     </entity>
     <entity name="GNZRoster" representedClassName="GNZRoster" syncable="YES">

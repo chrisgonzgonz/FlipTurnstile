@@ -12,6 +12,9 @@
 		725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5961A6C54FC00781EFF /* GNZRoster.m */; };
 		725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5991A6C54FD00781EFF /* GNZSwimmer.m */; };
 		725FE59D1A6C54FD00781EFF /* GNZAttendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE59C1A6C54FD00781EFF /* GNZAttendance.m */; };
+		725FE5A31A6C758F00781EFF /* infinite.png in Resources */ = {isa = PBXBuildFile; fileRef = 725FE5A11A6C758F00781EFF /* infinite.png */; };
+		725FE5A41A6C758F00781EFF /* infinite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 725FE5A21A6C758F00781EFF /* infinite@2x.png */; };
+		725FE5A71A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */; };
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
@@ -40,6 +43,10 @@
 		725FE5991A6C54FD00781EFF /* GNZSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSwimmer.m; sourceTree = "<group>"; };
 		725FE59B1A6C54FD00781EFF /* GNZAttendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZAttendance.h; sourceTree = "<group>"; };
 		725FE59C1A6C54FD00781EFF /* GNZAttendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZAttendance.m; sourceTree = "<group>"; };
+		725FE5A11A6C758F00781EFF /* infinite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infinite.png; sourceTree = "<group>"; };
+		725FE5A21A6C758F00781EFF /* infinite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infinite@2x.png"; sourceTree = "<group>"; };
+		725FE5A51A6C7A7700781EFF /* NSDate+GNZDateNormalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GNZDateNormalizer.h"; sourceTree = "<group>"; };
+		725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GNZDateNormalizer.m"; sourceTree = "<group>"; };
 		7272DB051A6B1F1900423929 /* FlipTurnstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipTurnstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB091A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7272DB0A1A6B1F1900423929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,6 +150,8 @@
 			children = (
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
+				725FE5A51A6C7A7700781EFF /* NSDate+GNZDateNormalizer.h */,
+				725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */,
 				725FE5781A6C31F100781EFF /* Controllers */,
 				7272DB3C1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld */,
 				725FE5731A6C108400781EFF /* Models */,
@@ -157,6 +166,8 @@
 		7272DB081A6B1F1900423929 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				725FE5A11A6C758F00781EFF /* infinite.png */,
+				725FE5A21A6C758F00781EFF /* infinite@2x.png */,
 				7272DB091A6B1F1900423929 /* Info.plist */,
 				7272DB0A1A6B1F1900423929 /* main.m */,
 			);
@@ -272,6 +283,8 @@
 			files = (
 				7272DB161A6B1F1900423929 /* Images.xcassets in Resources */,
 				7272DB451A6C0E8300423929 /* Default-568h@2x.png in Resources */,
+				725FE5A41A6C758F00781EFF /* infinite@2x.png in Resources */,
+				725FE5A31A6C758F00781EFF /* infinite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +337,7 @@
 			files = (
 				725FE59D1A6C54FD00781EFF /* GNZAttendance.m in Sources */,
 				725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */,
+				725FE5A71A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m in Sources */,
 				7272DB411A6C08C400423929 /* SwimmerDataStore.m in Sources */,
 				725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */,
 				725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */,
