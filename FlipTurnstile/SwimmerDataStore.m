@@ -50,7 +50,7 @@
     if (!_persistentStoreCoordinator) {
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         
-        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SwimmerDataStore.sqlite"];
+        NSURL *storeURL = [self persistentStoreURL];
         NSError *error;
         
         if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
