@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */; };
+		72506C8E1A8AF36400AEC9FA /* notebook88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */; };
 		725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5761A6C317C00781EFF /* GNZRosterViewController.m */; };
 		725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5961A6C54FC00781EFF /* GNZRoster.m */; };
 		725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5991A6C54FD00781EFF /* GNZSwimmer.m */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notebook88@2x.png"; sourceTree = "<group>"; };
 		725FE5751A6C317C00781EFF /* GNZRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterViewController.h; sourceTree = "<group>"; };
 		725FE5761A6C317C00781EFF /* GNZRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterViewController.m; sourceTree = "<group>"; };
 		725FE5951A6C54FC00781EFF /* GNZRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRoster.h; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				725FE5A11A6C758F00781EFF /* infinite.png */,
+				72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */,
 				725FE5A21A6C758F00781EFF /* infinite@2x.png */,
 				7272DB091A6B1F1900423929 /* Info.plist */,
 				7272DB0A1A6B1F1900423929 /* main.m */,
@@ -292,6 +295,7 @@
 				7272DB161A6B1F1900423929 /* Images.xcassets in Resources */,
 				7272DB451A6C0E8300423929 /* Default-568h@2x.png in Resources */,
 				725FE5A41A6C758F00781EFF /* infinite@2x.png in Resources */,
+				72506C8E1A8AF36400AEC9FA /* notebook88@2x.png in Resources */,
 				725FE5A31A6C758F00781EFF /* infinite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
