@@ -82,7 +82,7 @@
     if (!_roster) {
         GNZRoster *newRoster = [NSEntityDescription insertNewObjectForEntityForName:@"GNZRoster" inManagedObjectContext:self.managedObjectContext];
         
-        NSDictionary *swimmers = @{@"Chris": @{@"lastName": @"Gonzales", @"paymentOption": @1000}, @"Marc": @{@"lastName": @"Gershel", @"paymentOption": @5}, @"Megan": @{@"lastName": @"Jones", @"paymentOption": @3}};
+        NSDictionary *swimmers = @{@"Chris": @{@"lastName": @"Gonzales", @"paymentOption": @1000}, @"Marc": @{@"lastName": @"Gershel", @"paymentOption": @4}, @"Megan": @{@"lastName": @"Jones", @"paymentOption": @3}};
         for (NSString *key in swimmers) {
             GNZSwimmer *newSwimmer = [NSEntityDescription insertNewObjectForEntityForName:@"GNZSwimmer" inManagedObjectContext:self.managedObjectContext];
             newSwimmer.email = [NSString stringWithFormat:@"%@@gmail.com", key];
