@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GNZRosterViewController.h"
-#import "SwimmerDataStore.h"
+#import "GNZSwimmerDataStore.h"
 #import "GNZSplitsViewController.h"
 
 @interface AppDelegate ()

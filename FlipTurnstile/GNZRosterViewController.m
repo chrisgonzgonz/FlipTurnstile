@@ -7,7 +7,7 @@
 //
 
 #import "GNZRosterViewController.h"
-#import "SwimmerDataStore.h"
+#import "GNZSwimmerDataStore.h"
 #import "GNZSwimmer.h"
 #import "GNZAttendance.h"
 #import "NSDate+GNZDateNormalizer.h"
@@ -31,11 +31,11 @@
   self.navigationItem.title = [NSString stringWithFormat: @"Roster: %@", [formatter stringFromDate:[NSDate date]]];
   
   [self addTableView];
-  [[SwimmerDataStore sharedStore] roster];
-  NSLog(@"%@", [[SwimmerDataStore sharedStore] applicationDocumentsDirectory]);
+  [[GNZSwimmerDataStore sharedStore] roster];
+  NSLog(@"%@", [[GNZSwimmerDataStore sharedStore] applicationDocumentsDirectory]);
   
   
-  self.managedObjectContext = [[SwimmerDataStore sharedStore] managedObjectContext];
+  self.managedObjectContext = [[GNZSwimmerDataStore sharedStore] managedObjectContext];
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"GNZSwimmer"];
   [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES]]];
   self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];

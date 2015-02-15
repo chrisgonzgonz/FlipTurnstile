@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 @class GNZRoster;
 
-@interface SwimmerDataStore : NSObject
+@interface GNZSwimmerDataStore : NSObject
 
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

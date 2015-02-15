@@ -6,20 +6,20 @@
 //  Copyright (c) 2015 GNZ. All rights reserved.
 //
 
-#import "SwimmerDataStore.h"
+#import "GNZSwimmerDataStore.h"
 #import "GNZRoster.h"
 #import "GNZSwimmer.h"
 
-@interface SwimmerDataStore ()
+@interface GNZSwimmerDataStore ()
 @property (strong, readwrite, nonatomic) GNZRoster *roster;
 @end
-@implementation SwimmerDataStore
+@implementation GNZSwimmerDataStore
 
 + (instancetype)sharedStore {
-    static SwimmerDataStore *_sharedStore = nil;
+    static GNZSwimmerDataStore *_sharedStore = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedStore = [[SwimmerDataStore alloc] init];
+        _sharedStore = [[GNZSwimmerDataStore alloc] init];
     });
     
     return _sharedStore;

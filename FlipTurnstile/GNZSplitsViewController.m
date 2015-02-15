@@ -11,6 +11,7 @@
 #import "GNZSplitsView.h"
 @interface GNZSplitsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) GNZSplitsView *view;
+@property (nonatomic) NSMutableArray *lanes;
 @end
 
 @implementation GNZSplitsViewController
