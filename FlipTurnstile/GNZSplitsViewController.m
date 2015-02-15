@@ -1,13 +1,13 @@
 //
-//  GNZSplitsTableViewController.h
+//  GNZSplitsTableViewController.m
 //  FlipTurnstile
 //
 //  Created by Chris Gonzales on 2/10/15.
 //  Copyright (c) 2015 GNZ. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "GNZSplitsViewController.h"
 
-@interface GNZSplitsTableViewController : NSObject
+@implementation GNZSplitsViewController
 
 @end

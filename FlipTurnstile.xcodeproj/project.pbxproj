@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */; };
 		72506C8E1A8AF36400AEC9FA /* notebook88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */; };
-		72506C911A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72506C901A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m */; };
+		72506C911A8AF5BC00AEC9FA /* GNZSplitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72506C901A8AF5BC00AEC9FA /* GNZSplitsViewController.m */; };
 		725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5761A6C317C00781EFF /* GNZRosterViewController.m */; };
 		725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5961A6C54FC00781EFF /* GNZRoster.m */; };
 		725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5991A6C54FD00781EFF /* GNZSwimmer.m */; };
@@ -24,6 +24,7 @@
 		7272DB411A6C08C400423929 /* SwimmerDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB401A6C08C400423929 /* SwimmerDataStore.m */; };
 		7272DB431A6C091100423929 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7272DB421A6C091100423929 /* CoreData.framework */; };
 		7272DB451A6C0E8300423929 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB441A6C0E8300423929 /* Default-568h@2x.png */; };
+		7275DABC1A902DC100DBAEE2 /* GNZSplitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notebook88@2x.png"; sourceTree = "<group>"; };
-		72506C8F1A8AF5BC00AEC9FA /* GNZSplitsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSplitsTableViewController.h; sourceTree = "<group>"; };
-		72506C901A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSplitsTableViewController.m; sourceTree = "<group>"; };
+		72506C8F1A8AF5BC00AEC9FA /* GNZSplitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSplitsViewController.h; sourceTree = "<group>"; };
+		72506C901A8AF5BC00AEC9FA /* GNZSplitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSplitsViewController.m; sourceTree = "<group>"; };
 		725FE5751A6C317C00781EFF /* GNZRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterViewController.h; sourceTree = "<group>"; };
 		725FE5761A6C317C00781EFF /* GNZRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterViewController.m; sourceTree = "<group>"; };
 		725FE5951A6C54FC00781EFF /* GNZRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRoster.h; sourceTree = "<group>"; };
@@ -65,6 +66,8 @@
 		7272DB401A6C08C400423929 /* SwimmerDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwimmerDataStore.m; sourceTree = "<group>"; };
 		7272DB421A6C091100423929 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7272DB441A6C0E8300423929 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7275DABA1A902DC100DBAEE2 /* GNZSplitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSplitsView.h; sourceTree = "<group>"; };
+		7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSplitsView.m; sourceTree = "<group>"; };
 		A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlipTurnstileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,8 +128,8 @@
 			children = (
 				725FE5751A6C317C00781EFF /* GNZRosterViewController.h */,
 				725FE5761A6C317C00781EFF /* GNZRosterViewController.m */,
-				72506C8F1A8AF5BC00AEC9FA /* GNZSplitsTableViewController.h */,
-				72506C901A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m */,
+				72506C8F1A8AF5BC00AEC9FA /* GNZSplitsViewController.h */,
+				72506C901A8AF5BC00AEC9FA /* GNZSplitsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -157,8 +160,8 @@
 			children = (
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
-				725FE5A51A6C7A7700781EFF /* NSDate+GNZDateNormalizer.h */,
-				725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */,
+				7275DABD1A902DC700DBAEE2 /* Views */,
+				7275DAB91A902BBF00DBAEE2 /* Categories */,
 				725FE5781A6C31F100781EFF /* Controllers */,
 				728C7B2F1A8AE91200127FB0 /* Storage */,
 				725FE5731A6C108400781EFF /* Models */,
@@ -196,6 +199,24 @@
 				7272DB231A6B1F1900423929 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7275DAB91A902BBF00DBAEE2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				725FE5A51A6C7A7700781EFF /* NSDate+GNZDateNormalizer.h */,
+				725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		7275DABD1A902DC700DBAEE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7275DABA1A902DC100DBAEE2 /* GNZSplitsView.h */,
+				7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		728C7B2F1A8AE91200127FB0 /* Storage */ = {
@@ -359,8 +380,9 @@
 				725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */,
 				725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
+				7275DABC1A902DC100DBAEE2 /* GNZSplitsView.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
-				72506C911A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m in Sources */,
+				72506C911A8AF5BC00AEC9FA /* GNZSplitsViewController.m in Sources */,
 				7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
