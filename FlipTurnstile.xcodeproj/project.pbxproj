@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5FDFEC5DC1F7F01D23373314 /* libPods-FlipTurnstileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */; };
 		72506C8E1A8AF36400AEC9FA /* notebook88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */; };
+		72506C911A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72506C901A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m */; };
 		725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5761A6C317C00781EFF /* GNZRosterViewController.m */; };
 		725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5961A6C54FC00781EFF /* GNZRoster.m */; };
 		725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5991A6C54FD00781EFF /* GNZSwimmer.m */; };
@@ -37,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notebook88@2x.png"; sourceTree = "<group>"; };
+		72506C8F1A8AF5BC00AEC9FA /* GNZSplitsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSplitsTableViewController.h; sourceTree = "<group>"; };
+		72506C901A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSplitsTableViewController.m; sourceTree = "<group>"; };
 		725FE5751A6C317C00781EFF /* GNZRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterViewController.h; sourceTree = "<group>"; };
 		725FE5761A6C317C00781EFF /* GNZRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterViewController.m; sourceTree = "<group>"; };
 		725FE5951A6C54FC00781EFF /* GNZRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRoster.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 			children = (
 				725FE5751A6C317C00781EFF /* GNZRosterViewController.h */,
 				725FE5761A6C317C00781EFF /* GNZRosterViewController.m */,
+				72506C8F1A8AF5BC00AEC9FA /* GNZSplitsTableViewController.h */,
+				72506C901A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
+				72506C911A8AF5BC00AEC9FA /* GNZSplitsTableViewController.m in Sources */,
 				7272DB3E1A6BFFFA00423929 /* SwimAttendance.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
