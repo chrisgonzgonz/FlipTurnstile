@@ -47,7 +47,6 @@
     NSLog(@"%@, %@", error, error.localizedDescription);
   }
   
-  self.navigationController.tabBarItem.image = [UIImage imageNamed:@"notebook88"];
 }
 
 #pragma mark - UITableView DataSource

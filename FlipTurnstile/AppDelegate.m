@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GNZRosterViewController.h"
 #import "SwimmerDataStore.h"
+#import "GNZSplitsViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,12 @@
   UITabBarController *tabBarVC = [[UITabBarController alloc] init];
   GNZRosterViewController *rosterVC = [[GNZRosterViewController alloc] init];
   UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rosterVC];
-  tabBarVC.viewControllers = @[navVC];
+  GNZSplitsViewController *splitsVC = [[GNZSplitsViewController alloc] init];
+  navVC.tabBarItem.image = [UIImage imageNamed:@"clipBoard1"];
+  navVC.tabBarItem.title = @"Attendance";
+  splitsVC.tabBarItem.image = [UIImage imageNamed:@"stopWatch2"];
+  splitsVC.tabBarItem.title = @"Splits";
+  tabBarVC.viewControllers = @[navVC, splitsVC];
   self.window.rootViewController = tabBarVC;
   
   return YES;

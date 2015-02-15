@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GNZSplitsView : UIView
-
+@property (weak, nonatomic, readonly) UITableView *tableView;
 @end

@@ -8,14 +8,33 @@
 
 #import "GNZSplitsView.h"
 
+@interface GNZSplitsView ()
+@property (weak, nonatomic, readwrite) UITableView *tableView;
+@end
 @implementation GNZSplitsView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame {
+  if (self = [super initWithFrame:frame]) {
+    [self autolayoutSubviews];
+  }
+  return self;
 }
-*/
+
+- (void)autolayoutSubviews {
+  NSDictionary *views = @{@"tableView": self.tableView};
+  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|" options:0 metrics:nil views:views]];
+  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|" options:0 metrics:nil views:views]];
+}
+
+- (UITableView *)tableView {
+  if (!_tableView) {
+    UITableView *tableView = [[UITableView alloc] init];
+    _tableView = tableView;
+    _tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:_tableView];
+  }
+  return _tableView;
+}
+
 
 @end

@@ -25,6 +25,9 @@
 		7272DB431A6C091100423929 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7272DB421A6C091100423929 /* CoreData.framework */; };
 		7272DB451A6C0E8300423929 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB441A6C0E8300423929 /* Default-568h@2x.png */; };
 		7275DABC1A902DC100DBAEE2 /* GNZSplitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */; };
+		72DB88241A914DD500D49F0E /* stopWatch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB88231A914DD500D49F0E /* stopWatch1.png */; };
+		72DB88261A914F0800D49F0E /* stopWatch2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB88251A914F0800D49F0E /* stopWatch2@2x.png */; };
+		72DB88281A914F6F00D49F0E /* clipBoard1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB88271A914F6F00D49F0E /* clipBoard1@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		7272DB441A6C0E8300423929 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7275DABA1A902DC100DBAEE2 /* GNZSplitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSplitsView.h; sourceTree = "<group>"; };
 		7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSplitsView.m; sourceTree = "<group>"; };
+		72DB88231A914DD500D49F0E /* stopWatch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopWatch1.png; sourceTree = "<group>"; };
+		72DB88251A914F0800D49F0E /* stopWatch2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stopWatch2@2x.png"; sourceTree = "<group>"; };
+		72DB88271A914F6F00D49F0E /* clipBoard1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipBoard1@2x.png"; sourceTree = "<group>"; };
 		A7871AFD4B907A51951FA6FE /* Pods-FlipTurnstileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B570C6E7DD70A8966B6196FB /* Pods-FlipTurnstileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlipTurnstileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlipTurnstileTests/Pods-FlipTurnstileTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA00756A42CCA42EC406B94D /* libPods-FlipTurnstileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlipTurnstileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				725FE5A11A6C758F00781EFF /* infinite.png */,
+				72DB88271A914F6F00D49F0E /* clipBoard1@2x.png */,
+				72DB88231A914DD500D49F0E /* stopWatch1.png */,
+				72DB88251A914F0800D49F0E /* stopWatch2@2x.png */,
 				72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */,
 				725FE5A21A6C758F00781EFF /* infinite@2x.png */,
 				7272DB091A6B1F1900423929 /* Info.plist */,
@@ -323,6 +332,9 @@
 				725FE5A41A6C758F00781EFF /* infinite@2x.png in Resources */,
 				72506C8E1A8AF36400AEC9FA /* notebook88@2x.png in Resources */,
 				725FE5A31A6C758F00781EFF /* infinite.png in Resources */,
+				72DB88261A914F0800D49F0E /* stopWatch2@2x.png in Resources */,
+				72DB88241A914DD500D49F0E /* stopWatch1.png in Resources */,
+				72DB88281A914F6F00D49F0E /* clipBoard1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
