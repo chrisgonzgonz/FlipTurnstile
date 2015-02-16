@@ -50,7 +50,7 @@
 }
 
 - (void)addLane:(UIBarButtonItem *)sender {
-  [self.lanes addObject:@"nuthin"];
+  [self.lanes addObject:[[GNZRaceTime alloc] init]];
   [self.view.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
@@ -116,12 +116,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   GNZRaceTime *selectedTime = self.lanes[indexPath.row];
-  if (!selectedTime.dateStarted) {
-    selectedTime.dateStarted = [NSDate date];
-  } else {
-    NSTimeInterval newLap = [[NSDate date] timeIntervalSinceDate:selectedTime.dateStarted];
-    [selectedTime addLap:newLap];
-  }
+  [selectedTime addLap:[NSDate date]];
 }
 
 #pragma mark - TableView Datasource
@@ -136,12 +131,16 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:basicCell];
   }
   GNZRaceTime *currentTime = self.lanes[indexPath.row];
-  NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.dateStarted];
-  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Clock: %@", indexPath.row+1, currentTime.name, currentTime.dateStarted ? @(elapsedTime) : @"00" ];
+  NSTimeInterval elapsedTime;
+  if (currentTime.lapTimes.count) {
+    elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.lapTimes.firstObject];
+  }
+  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Clock: %@", indexPath.row+1, currentTime.name, currentTime.lapTimes.count ? @(elapsedTime) : @"00" ];
   NSMutableString *lapString = [[NSMutableString alloc] init];
-  for (NSInteger x = 0; x < currentTime.laps.count; x++) {
-    NSNumber *lap = currentTime.laps[x];
-    [lapString appendFormat:@"Lap %lu: %@,", x+1, lap];
+  for (NSInteger x = 0; x < currentTime.lapTimes.count; x++) {
+    NSInteger lapTime = [currentTime lapTimeForIndex:x];
+//    NSNumber *lap = currentTime.lapTimes[x];
+    if (x<currentTime.lapTimes.count-1) [lapString appendFormat:@"Lap %ld: %ld,", x+1, (long)lapTime];
   }
   cell.detailTextLabel.text = [NSString stringWithFormat:@"Lap: %@", lapString];
   return cell;

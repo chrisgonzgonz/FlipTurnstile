@@ -9,7 +9,7 @@
 #import "GNZRaceTime.h"
 
 @interface GNZRaceTime ()
-@property (nonatomic, readwrite) NSArray *laps;
+@property (nonatomic, readwrite) NSArray *lapTimes;
 @end
 @implementation GNZRaceTime
 
@@ -17,18 +17,25 @@
 {
   self = [super init];
   if (self) {
-    _laps = @[];
+    _lapTimes = @[];
+    _name = @"New Swimmer";
   }
   return self;
 }
 
 // TODO: store NSDates instead of Time Intervals
-- (void)addLap:(NSTimeInterval)timeInterval {
-  self.laps = [self.laps arrayByAddingObject:@(timeInterval)];
-  
+- (void)addLap:(NSDate *)lapDate {
+  self.lapTimes = [self.lapTimes arrayByAddingObject:lapDate];
 }
 
 - (NSTimeInterval)finishTime {
-  return [[self.laps valueForKey:@"@sum.self"] doubleValue];
+  return [self.lapTimes.lastObject timeIntervalSinceDate:self.lapTimes.firstObject];
+}
+
+- (NSTimeInterval)lapTimeForIndex:(NSUInteger)index {
+  if (index+1 < self.lapTimes.count) {
+    return [self.lapTimes[index+1] timeIntervalSinceDate:self.lapTimes[index]];
+  }
+  return 0;
 }
 @end
