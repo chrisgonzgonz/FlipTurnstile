@@ -64,15 +64,18 @@
 
 - (void)startStopAllLanes:(UIButton *)sender {
   NSLog(@"Tapped!");
-  if (!sender.selected) {
+  sender.selected = !sender.selected;
+  if (sender.selected) {
     for (NSInteger index = 0; index < self.lanes.count; index++) {
       GNZRaceTime *currentLane = self.lanes[index];
       if (!currentLane.lapTimes.count) {
         [self addLapTimeForRaceTime:currentLane];
       }
     }
+    [self.toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.904 green:0.000 blue:0.050 alpha:0.800]];
+  } else {
+    [self.toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.101 green:0.494 blue:0.322 alpha:0.800]];
   }
-  sender.selected = !sender.selected;
   [self.view.tableView reloadData];
 }
 
@@ -90,8 +93,8 @@
     UIButton *toggleAllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _toggleAllButton = toggleAllButton;
     _toggleAllButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_toggleAllButton setTitle:@"START ALL" forState:UIControlStateNormal];
-    [_toggleAllButton setTitle:@"STOP ALL" forState:UIControlStateSelected];
+    [_toggleAllButton setTitle:@"START ALL LANES" forState:UIControlStateNormal];
+    [_toggleAllButton setTitle:@"STOP ALL LANES" forState:UIControlStateSelected];
     _toggleAllButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [_toggleAllButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.101 green:0.494 blue:0.322 alpha:0.800]];
@@ -138,17 +141,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
-}
-
-- (UIButton *)startStopAllButton {
-  UIButton *startAll = [UIButton buttonWithType:UIButtonTypeCustom];
-  [startAll setTitle:@"START ALL" forState:UIControlStateNormal];
-  [startAll setTitle:@"STOP ALL" forState:UIControlStateSelected];
-  startAll.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-  [startAll setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  [startAll setBackgroundColor:[UIColor colorWithRed:0.101 green:0.494 blue:0.322 alpha:1.000]];
-  [startAll addTarget:self action:@selector(startStopAllLanes:) forControlEvents:UIControlEventTouchUpInside];
-  return startAll;
 }
 
 #pragma mark - TableView Delegate
