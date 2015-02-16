@@ -13,6 +13,7 @@
 @interface GNZSplitsViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (nonatomic) GNZSplitsView *view;
 @property (nonatomic) NSMutableArray *lanes;
+@property (weak, nonatomic) NSTimer *tableViewTimer;
 @end
 
 @implementation GNZSplitsViewController
@@ -36,17 +37,10 @@
   GNZRaceTime *chrisTime = [[GNZRaceTime alloc] init];
   chrisTime.name = @"Chris";
   self.lanes = [[NSMutableArray alloc] initWithArray:@[marcTime, meganTime, chrisTime]];
-  NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
 }
 
 - (void)timerTick:(NSTimer *)sender {
   [self.view.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
-  NSLog(@"Memory Warning!");
 }
 
 - (void)addLane:(UIBarButtonItem *)sender {
@@ -54,6 +48,48 @@
   [self.view.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
+
+- (void)renameRace:(id)sender {
+  NSLog(@"tapping!");
+  self.navigationItem.titleView = [self navTitleEditField];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+  [super setEditing:editing animated:animated];
+  [self.view.tableView setEditing:editing animated:animated];
+  self.navigationItem.rightBarButtonItem.enabled = !editing;
+}
+
+- (void)startStopAllLanes:(UIButton *)sender {
+  NSLog(@"Tapped!");
+  if (!sender.selected) {
+    for (NSInteger index = 0; index < self.lanes.count; index++) {
+      GNZRaceTime *currentLane = self.lanes[index];
+      if (!currentLane.lapTimes.count) {
+        [self addLapTimeForRaceTime:currentLane];
+//        [self tableView:self.view.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+//        [self.view.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+      }
+    }
+  }
+  [self.view.tableView reloadData];
+}
+
+
+- (void)addLapTimeForRaceTime:(GNZRaceTime *)selectedTime {
+  [selectedTime addLap:[NSDate date]];
+  if (!self.tableViewTimer) {
+    self.tableViewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+  }
+}
+
+//- (void)viewWillDisappear:(BOOL)animated {
+//  [super viewWillDisappear:animated];
+//  if (self.tableViewTimer.isValid) [self.tableViewTimer invalidate];
+//  self.tableViewTimer = nil;
+//}
+
+#pragma mark - UI
 - (UILabel *)navTitleLabelWithName:(NSString *)raceName {
   UILabel *titleLabel = [[UILabel alloc] init];
   titleLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -77,17 +113,6 @@
   return editTitleView;
 }
 
-- (void)renameRace:(id)sender {
-  NSLog(@"tapping!");
-  self.navigationItem.titleView = [self navTitleEditField];
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-  [super setEditing:editing animated:animated];
-  [self.view.tableView setEditing:editing animated:animated];
-  self.navigationItem.rightBarButtonItem.enabled = !editing;
-}
-
 #pragma mark - TextField Delegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
   self.navigationItem.titleView = [self navTitleLabelWithName:textField.text];
@@ -98,11 +123,30 @@
   return YES;
 }
 
+- (UIButton *)startStopAllButton {
+  UIButton *startAll = [UIButton buttonWithType:UIButtonTypeCustom];
+  [startAll setTitle:@"START ALL" forState:UIControlStateNormal];
+  [startAll setTitle:@"STOP ALL" forState:UIControlStateSelected];
+  startAll.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+  [startAll setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [startAll setBackgroundColor:[UIColor colorWithRed:0.101 green:0.494 blue:0.322 alpha:1.000]];
+  [startAll addTarget:self action:@selector(startStopAllLanes:) forControlEvents:UIControlEventTouchUpInside];
+  return startAll;
+}
+
 #pragma mark - TableView Delegate
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  return [self startStopAllButton];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  return 34;
+}
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
   [self.lanes exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
-  [self.view.tableView reloadRowsAtIndexPaths:@[sourceIndexPath, destinationIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+//  [self.view.tableView reloadRowsAtIndexPaths:@[sourceIndexPath, destinationIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+//  [self.view.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,7 +160,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   GNZRaceTime *selectedTime = self.lanes[indexPath.row];
-  [selectedTime addLap:[NSDate date]];
+  [self addLapTimeForRaceTime:selectedTime];
+//  [selectedTime addLap:[NSDate date]];
 }
 
 #pragma mark - TableView Datasource
@@ -142,7 +187,7 @@
 //    NSNumber *lap = currentTime.lapTimes[x];
     if (x<currentTime.lapTimes.count-1) [lapString appendFormat:@"Lap %ld: %ld,", x+1, (long)lapTime];
   }
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Lap: %@", lapString];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lapString];
   return cell;
 }
 
