@@ -25,7 +25,7 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view.
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateFormat:@"MM/yyyy"];
+  [formatter setDateFormat:@"M/d/yyyy"];
   
   
   self.navigationItem.title = [NSString stringWithFormat: @"Roster: %@", [formatter stringFromDate:[NSDate date]]];
