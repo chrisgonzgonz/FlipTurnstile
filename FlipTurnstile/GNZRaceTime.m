@@ -22,6 +22,12 @@
   return self;
 }
 
+// TODO: store NSDates instead of Time Intervals
+- (void)addLap:(NSTimeInterval)timeInterval {
+  self.laps = [self.laps arrayByAddingObject:@(timeInterval)];
+  
+}
+
 - (NSTimeInterval)finishTime {
   return [[self.laps valueForKey:@"@sum.self"] doubleValue];
 }

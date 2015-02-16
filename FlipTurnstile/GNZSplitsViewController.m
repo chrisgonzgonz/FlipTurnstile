@@ -8,6 +8,7 @@
 
 #import "GNZSplitsViewController.h"
 
+#import "GNZRaceTime.h"
 #import "GNZSplitsView.h"
 @interface GNZSplitsViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (nonatomic) GNZSplitsView *view;
@@ -28,6 +29,18 @@
   self.view.tableView.delegate = self;
   self.view.tableView.dataSource = self;
   self.lanes = [[NSMutableArray alloc] init];
+  GNZRaceTime *marcTime = [[GNZRaceTime alloc] init];
+  marcTime.name = @"Marc";
+  GNZRaceTime *meganTime = [[GNZRaceTime alloc] init];
+  meganTime.name = @"Megan";
+  GNZRaceTime *chrisTime = [[GNZRaceTime alloc] init];
+  chrisTime.name = @"Chris";
+  self.lanes = [[NSMutableArray alloc] initWithArray:@[marcTime, meganTime, chrisTime]];
+  NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+}
+
+- (void)timerTick:(NSTimer *)sender {
+  [self.view.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,6 +113,17 @@
   }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  GNZRaceTime *selectedTime = self.lanes[indexPath.row];
+  if (!selectedTime.dateStarted) {
+    selectedTime.dateStarted = [NSDate date];
+  } else {
+    NSTimeInterval newLap = [[NSDate date] timeIntervalSinceDate:selectedTime.dateStarted];
+    [selectedTime addLap:newLap];
+  }
+}
+
 #pragma mark - TableView Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.lanes.count;
@@ -111,8 +135,15 @@
   if (!cell) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:basicCell];
   }
-  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu", indexPath.row+1];
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Lap:"];
+  GNZRaceTime *currentTime = self.lanes[indexPath.row];
+  NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.dateStarted];
+  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Clock: %@", indexPath.row+1, currentTime.name, currentTime.dateStarted ? @(elapsedTime) : @"00" ];
+  NSMutableString *lapString = [[NSMutableString alloc] init];
+  for (NSInteger x = 0; x < currentTime.laps.count; x++) {
+    NSNumber *lap = currentTime.laps[x];
+    [lapString appendFormat:@"Lap %lu: %@,", x+1, lap];
+  }
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"Lap: %@", lapString];
   return cell;
 }
 

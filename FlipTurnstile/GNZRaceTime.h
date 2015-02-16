@@ -11,7 +11,9 @@
 @class GNZSwimmer;
 @interface GNZRaceTime : NSObject
 @property (nonatomic) NSDate *dateStarted;
-@property (nonatomic) GNZSwimmer *swimmer;
+//@property (nonatomic) GNZSwimmer *swimmer;
+@property (nonatomic) NSString *name;
 @property (nonatomic, readonly) NSArray *laps;
 - (NSTimeInterval)finishTime;
+- (void)addLap:(NSTimeInterval)timeInterval;
 @end
