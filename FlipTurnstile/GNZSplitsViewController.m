@@ -33,12 +33,18 @@
 }
 
 #pragma mark - TableView Datasource
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//  
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//  
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  static NSString *basicCell = @"basicCell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:basicCell];
+  if (!cell) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:basicCell];
+  }
+  cell.textLabel.text = [NSString stringWithFormat:@"%lu", indexPath.row];
+  return cell;
+}
 
 @end

@@ -23,13 +23,14 @@
   
   UITabBarController *tabBarVC = [[UITabBarController alloc] init];
   GNZRosterViewController *rosterVC = [[GNZRosterViewController alloc] init];
-  UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rosterVC];
+  UINavigationController *rosterNavVC = [[UINavigationController alloc] initWithRootViewController:rosterVC];
   GNZSplitsViewController *splitsVC = [[GNZSplitsViewController alloc] init];
-  navVC.tabBarItem.image = [UIImage imageNamed:@"clipBoard1"];
-  navVC.tabBarItem.title = @"Attendance";
-  splitsVC.tabBarItem.image = [UIImage imageNamed:@"stopWatch2"];
-  splitsVC.tabBarItem.title = @"Splits";
-  tabBarVC.viewControllers = @[navVC, splitsVC];
+  UINavigationController *splitsNavVC = [[UINavigationController alloc] initWithRootViewController:splitsVC];
+  rosterNavVC.tabBarItem.image = [UIImage imageNamed:@"clipBoard1"];
+  rosterNavVC.tabBarItem.title = @"Attendance";
+  splitsNavVC.tabBarItem.image = [UIImage imageNamed:@"stopWatch2"];
+  splitsNavVC.tabBarItem.title = @"Splits";
+  tabBarVC.viewControllers = @[rosterNavVC, splitsNavVC];
   self.window.rootViewController = tabBarVC;
   
   return YES;
