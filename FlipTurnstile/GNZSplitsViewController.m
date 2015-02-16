@@ -33,6 +33,8 @@
   self.view.tableView.delegate = self;
   self.view.tableView.dataSource = self;
   self.lanes = [[NSMutableArray alloc] init];
+  
+//  Fake data, kill this
   GNZRaceTime *marcTime = [[GNZRaceTime alloc] init];
   marcTime.name = @"Marc";
   GNZRaceTime *meganTime = [[GNZRaceTime alloc] init];
@@ -78,7 +80,6 @@
   }
   [self.view.tableView reloadData];
 }
-
 
 - (void)addLapTimeForRaceTime:(GNZRaceTime *)selectedTime {
   [selectedTime addLap:[NSDate date]];
@@ -179,7 +180,7 @@
   if (currentTime.lapTimes.count) {
     elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.lapTimes.firstObject];
   }
-  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Clock: %@", indexPath.row+1, currentTime.name, currentTime.lapTimes.count ? @(elapsedTime) : @"00" ];
+  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Time: %@", indexPath.row+1, currentTime.name, currentTime.lapTimes.count ? @(elapsedTime) : @"00" ];
   NSMutableString *lapString = [[NSMutableString alloc] init];
   for (NSInteger x = 0; x < currentTime.lapTimes.count; x++) {
     NSInteger lapTime = [currentTime lapTimeForIndex:x];
