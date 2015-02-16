@@ -69,7 +69,7 @@
 		7272DB3F1A6C08C400423929 /* GNZSwimmerDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSwimmerDataStore.h; sourceTree = "<group>"; };
 		7272DB401A6C08C400423929 /* GNZSwimmerDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSwimmerDataStore.m; sourceTree = "<group>"; };
 		7272DB421A6C091100423929 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7272DB441A6C0E8300423929 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7272DB441A6C0E8300423929 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7275DABA1A902DC100DBAEE2 /* GNZSplitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZSplitsView.h; sourceTree = "<group>"; };
 		7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZSplitsView.m; sourceTree = "<group>"; };
 		72DB88231A914DD500D49F0E /* stopWatch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopWatch1.png; sourceTree = "<group>"; };
@@ -148,7 +148,6 @@
 		7272DAFC1A6B1F1900423929 = {
 			isa = PBXGroup;
 			children = (
-				7272DB441A6C0E8300423929 /* Default-568h@2x.png */,
 				7272DB071A6B1F1900423929 /* FlipTurnstile */,
 				7272DB211A6B1F1900423929 /* FlipTurnstileTests */,
 				7272DB061A6B1F1900423929 /* Products */,
@@ -194,6 +193,7 @@
 				72506C8D1A8AF36400AEC9FA /* notebook88@2x.png */,
 				725FE5A21A6C758F00781EFF /* infinite@2x.png */,
 				7272DB091A6B1F1900423929 /* Info.plist */,
+				7272DB441A6C0E8300423929 /* Default-568h@2x.png */,
 				7272DB0A1A6B1F1900423929 /* main.m */,
 			);
 			name = "Supporting Files";
