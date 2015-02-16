@@ -67,8 +67,6 @@
       GNZRaceTime *currentLane = self.lanes[index];
       if (!currentLane.lapTimes.count) {
         [self addLapTimeForRaceTime:currentLane];
-//        [self tableView:self.view.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-//        [self.view.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
       }
     }
   }
@@ -82,12 +80,6 @@
     self.tableViewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
   }
 }
-
-//- (void)viewWillDisappear:(BOOL)animated {
-//  [super viewWillDisappear:animated];
-//  if (self.tableViewTimer.isValid) [self.tableViewTimer invalidate];
-//  self.tableViewTimer = nil;
-//}
 
 #pragma mark - UI
 - (UILabel *)navTitleLabelWithName:(NSString *)raceName {
@@ -145,8 +137,7 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
   [self.lanes exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
-//  [self.view.tableView reloadRowsAtIndexPaths:@[sourceIndexPath, destinationIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-//  [self.view.tableView reloadData];
+  [self.view.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,7 +152,6 @@
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   GNZRaceTime *selectedTime = self.lanes[indexPath.row];
   [self addLapTimeForRaceTime:selectedTime];
-//  [selectedTime addLap:[NSDate date]];
 }
 
 #pragma mark - TableView Datasource
@@ -176,7 +166,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:basicCell];
   }
   GNZRaceTime *currentTime = self.lanes[indexPath.row];
-  NSTimeInterval elapsedTime;
+  NSTimeInterval elapsedTime = 0;
   if (currentTime.lapTimes.count) {
     elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.lapTimes.firstObject];
   }
@@ -184,7 +174,6 @@
   NSMutableString *lapString = [[NSMutableString alloc] init];
   for (NSInteger x = 0; x < currentTime.lapTimes.count; x++) {
     NSInteger lapTime = [currentTime lapTimeForIndex:x];
-//    NSNumber *lap = currentTime.lapTimes[x];
     if (x<currentTime.lapTimes.count-1) [lapString appendFormat:@"Lap %ld: %ld,", x+1, (long)lapTime];
   }
   cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lapString];
