@@ -13,4 +13,16 @@
 @end
 @implementation GNZRace
 
+- (instancetype)init
+{
+  self = [super init];
+  if (self) {
+    _laps = @[];
+  }
+  return self;
+}
+
+- (NSTimeInterval)finishTime {
+  return [[self.laps valueForKey:@"@sum.self"] doubleValue];
+}
 @end
