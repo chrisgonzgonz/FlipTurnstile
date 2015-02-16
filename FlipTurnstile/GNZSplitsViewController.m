@@ -13,16 +13,19 @@
 @interface GNZSplitsViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (nonatomic) GNZSplitsView *view;
 @property (nonatomic) NSMutableArray *lanes;
-@property (weak, nonatomic) NSTimer *tableViewTimer;
+@property (nonatomic) NSTimer *tableViewTimer;
+@property (weak, nonatomic) UIButton *toggleAllButton;
 @end
 
 @implementation GNZSplitsViewController
 
 - (void)loadView {
+  [super loadView];
   self.view = [[GNZSplitsView alloc] init];
   self.navigationItem.titleView = [self navTitleLabelWithName:nil];
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLane:)];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
+  [self autolayoutViews];
 }
 
 - (void)viewDidLoad {
@@ -48,7 +51,6 @@
   [self.view.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
-
 - (void)renameRace:(id)sender {
   NSLog(@"tapping!");
   self.navigationItem.titleView = [self navTitleEditField];
@@ -70,6 +72,7 @@
       }
     }
   }
+  sender.selected = !sender.selected;
   [self.view.tableView reloadData];
 }
 
@@ -82,6 +85,28 @@
 }
 
 #pragma mark - UI
+- (UIButton *)toggleAllButton {
+  if (!_toggleAllButton) {
+    UIButton *toggleAllButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _toggleAllButton = toggleAllButton;
+    _toggleAllButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_toggleAllButton setTitle:@"START ALL" forState:UIControlStateNormal];
+    [_toggleAllButton setTitle:@"STOP ALL" forState:UIControlStateSelected];
+    _toggleAllButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    [_toggleAllButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.101 green:0.494 blue:0.322 alpha:0.800]];
+    [_toggleAllButton addTarget:self action:@selector(startStopAllLanes:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_toggleAllButton];
+  }
+  return _toggleAllButton;
+}
+
+- (void)autolayoutViews {
+  NSDictionary *views = @{@"toggleAllButton": self.toggleAllButton, @"bottomLayoutGuide":self.bottomLayoutGuide};
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[toggleAllButton(==44)][bottomLayoutGuide]" options:0 metrics:nil views:views]];
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[toggleAllButton]|" options:0 metrics:nil views:views]];
+}
+
 - (UILabel *)navTitleLabelWithName:(NSString *)raceName {
   UILabel *titleLabel = [[UILabel alloc] init];
   titleLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -127,14 +152,6 @@
 }
 
 #pragma mark - TableView Delegate
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  return [self startStopAllButton];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return 34;
-}
-
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
   [self.lanes exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
   [self.view.tableView reloadData];

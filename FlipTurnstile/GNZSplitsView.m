@@ -10,6 +10,7 @@
 
 @interface GNZSplitsView ()
 @property (weak, nonatomic, readwrite) UITableView *tableView;
+@property (weak, nonatomic, readwrite) UIButton *toggleAllButton;
 @end
 @implementation GNZSplitsView
 
