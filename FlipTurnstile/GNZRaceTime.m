@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 GNZ. All rights reserved.
 //
 
-#import "GNZRace.h"
+#import "GNZRaceTime.h"
 
-@interface GNZRace ()
+@interface GNZRaceTime ()
 @property (nonatomic, readwrite) NSArray *laps;
 @end
-@implementation GNZRace
+@implementation GNZRaceTime
 
 - (instancetype)init
 {

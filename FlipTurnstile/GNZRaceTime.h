@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class GNZSwimmer;
-@interface GNZRace : NSObject
+@interface GNZRaceTime : NSObject
 @property (nonatomic) NSDate *dateStarted;
 @property (nonatomic) GNZSwimmer *swimmer;
 @property (nonatomic, readonly) NSArray *laps;
