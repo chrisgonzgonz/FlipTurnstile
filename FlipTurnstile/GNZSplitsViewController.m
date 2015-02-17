@@ -85,13 +85,13 @@
   NSLog(@"Tapped!");
   sender.selected = !sender.selected;
   if (sender.selected) {
+    self.startDate = [NSDate date];
     for (NSInteger index = 0; index < self.lanes.count; index++) {
       GNZRaceTime *currentLane = self.lanes[index];
       if (!currentLane.lapTimes.count) {
         [self addLapTimeForRaceTime:currentLane];
       }
     }
-    self.startDate = [NSDate date];
     [self.toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.904 green:0.000 blue:0.050 alpha:0.800]];
   } else {
     for (NSInteger index = 0; index < self.lanes.count; index++) {
@@ -214,7 +214,7 @@
   self.headerLabel.textAlignment = NSTextAlignmentCenter;
   self.headerLabel.backgroundColor = [UIColor colorWithRed:0.761 green:0.788 blue:0.936 alpha:1.000];
   
-  self.headerLabel.text = @"HOPE";
+  self.headerLabel.text = @"00:00.00";
   return headerView;
 }
 
@@ -238,7 +238,7 @@
   GNZRaceTime *currentTime = self.lanes[indexPath.row];
   cell.raceTime = currentTime;
   cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
-  [cell.splitButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
+  [cell.stopButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
   
   cell.laneLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
   return cell;
