@@ -10,6 +10,7 @@
 
 #import "GNZRaceTime.h"
 #import "GNZSplitsView.h"
+#import "GNZLaneTableViewCell.h"
 @interface GNZSplitsViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (nonatomic) GNZSplitsView *view;
 @property (nonatomic) NSMutableArray *lanes;
@@ -34,6 +35,7 @@
   self.view.tableView.dataSource = self;
   self.lanes = [[NSMutableArray alloc] init];
   
+  [self.view.tableView registerNib:[UINib nibWithNibName:@"GNZLaneTableViewCell" bundle:nil] forCellReuseIdentifier:@"laneCell"];
 //  Fake data, kill this
   GNZRaceTime *marcTime = [[GNZRaceTime alloc] init];
   marcTime.name = @"Marc";
@@ -42,6 +44,7 @@
   GNZRaceTime *chrisTime = [[GNZRaceTime alloc] init];
   chrisTime.name = @"Chris";
   self.lanes = [[NSMutableArray alloc] initWithArray:@[marcTime, meganTime, chrisTime]];
+  
 }
 
 - (void)timerTick:(NSTimer *)sender {
@@ -170,24 +173,29 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *basicCell = @"basicCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:basicCell];
+//  static NSString *basicCell = @"basicCell";
+  static NSString *laneCell = @"laneCell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:laneCell];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:basicCell];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:laneCell];
   }
-  GNZRaceTime *currentTime = self.lanes[indexPath.row];
-  NSTimeInterval elapsedTime = 0;
-  if (currentTime.lapTimes.count) {
-    elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.lapTimes.firstObject];
-  }
-  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Time: %@", indexPath.row+1, currentTime.name, currentTime.lapTimes.count ? @(elapsedTime) : @"00" ];
-  NSMutableString *lapString = [[NSMutableString alloc] init];
-  for (NSInteger x = 0; x < currentTime.lapTimes.count; x++) {
-    NSInteger lapTime = [currentTime lapTimeForIndex:x];
-    if (x<currentTime.lapTimes.count-1) [lapString appendFormat:@"Lap %ld: %ld,", x+1, (long)lapTime];
-  }
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lapString];
+//  GNZRaceTime *currentTime = self.lanes[indexPath.row];
+//  NSTimeInterval elapsedTime = 0;
+//  if (currentTime.lapTimes.count) {
+//    elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.lapTimes.firstObject];
+//  }
+//  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Time: %@", indexPath.row+1, currentTime.name, currentTime.lapTimes.count ? @(elapsedTime) : @"00" ];
+//  NSMutableString *lapString = [[NSMutableString alloc] init];
+//  for (NSInteger x = 0; x < currentTime.lapTimes.count; x++) {
+//    NSInteger lapTime = [currentTime lapTimeForIndex:x];
+//    if (x<currentTime.lapTimes.count-1) [lapString appendFormat:@"Lap %ld: %ld,", x+1, (long)lapTime];
+//  }
+//  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lapString];
   return cell;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+  [self.view.tableView reloadData];
 }
 
 @end
