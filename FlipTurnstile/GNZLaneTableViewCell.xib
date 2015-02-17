@@ -23,7 +23,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laps:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw3-w7-gGh">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="Laps:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw3-w7-gGh">
                     <rect key="frame" x="8" y="66" width="43" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -44,7 +44,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53M-Gj-QJo">
                     <rect key="frame" x="315" y="46" width="136" height="42"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                    <state key="normal" title="SPLIT">
+                    <state key="normal" title="STOP">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -53,6 +53,7 @@
             <constraints>
                 <constraint firstItem="53M-Gj-QJo" firstAttribute="height" secondItem="t5v-gQ-VGI" secondAttribute="height" id="57z-RR-752"/>
                 <constraint firstAttribute="centerYWithinMargins" secondItem="t5v-gQ-VGI" secondAttribute="centerYWithinMargins" constant="10" id="5JN-vZ-Twx"/>
+                <constraint firstItem="53M-Gj-QJo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dw3-w7-gGh" secondAttribute="trailing" constant="8" id="9Uh-bF-Y98"/>
                 <constraint firstItem="t5v-gQ-VGI" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="BFt-DQ-CRk"/>
                 <constraint firstItem="dw3-w7-gGh" firstAttribute="top" secondItem="gUy-oY-6N6" secondAttribute="bottom" constant="8" id="Ca5-by-qJa"/>
                 <constraint firstItem="t5v-gQ-VGI" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="DhQ-BH-MMw"/>
@@ -81,6 +82,13 @@
                     <exclude reference="Wks-0x-hbB"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="laneLabel" destination="hWm-UT-bYe" id="PkX-Tp-J0f"/>
+                <outlet property="lapsLabel" destination="dw3-w7-gGh" id="oqX-qq-bDw"/>
+                <outlet property="splitButton" destination="53M-Gj-QJo" id="1Wy-Mx-qQy"/>
+                <outlet property="swimmerLabel" destination="Pmv-D9-t9f" id="bwt-Fi-qwf"/>
+                <outlet property="timeLabel" destination="t5v-gQ-VGI" id="vMB-eZ-ass"/>
+            </connections>
             <point key="canvasLocation" x="69.5" y="406"/>
         </view>
     </objects>

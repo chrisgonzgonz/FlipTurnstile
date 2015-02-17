@@ -17,4 +17,6 @@
 - (NSTimeInterval)finishTime;
 - (void)addLap:(NSDate *)lapDate;
 - (NSTimeInterval)lapTimeForIndex:(NSUInteger)index;
+- (NSString *)lapDescription;
+- (NSString *)timeDescription;
 @end

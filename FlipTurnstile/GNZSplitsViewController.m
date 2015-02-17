@@ -67,6 +67,13 @@
   self.navigationItem.rightBarButtonItem.enabled = !editing;
 }
 
+- (void)killTimer {
+  if (self.tableViewTimer.valid) {
+    [self.tableViewTimer invalidate];
+  }
+  self.tableViewTimer = nil;
+}
+
 - (void)startStopAllLanes:(UIButton *)sender {
   NSLog(@"Tapped!");
   sender.selected = !sender.selected;
@@ -79,10 +86,28 @@
     }
     [self.toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.904 green:0.000 blue:0.050 alpha:0.800]];
   } else {
+    for (NSInteger index = 0; index < self.lanes.count; index++) {
+      GNZRaceTime *currentLane = self.lanes[index];
+      [self stopTimerWithCurrentLane:currentLane];
+    }
+    [self killTimer];
     [self.toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.101 green:0.494 blue:0.322 alpha:0.800]];
   }
   [self.view.tableView reloadData];
 }
+
+- (void)stopTimerWithCurrentLane:(GNZRaceTime *)lane {
+  [lane addLap:[NSDate date]];
+  lane.raceComplete = YES;
+}
+
+- (void)stopTimer:(UIButton *)sender {
+  CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.view.tableView];
+  NSIndexPath *indexPath = [self.view.tableView indexPathForRowAtPoint:buttonPosition];
+  GNZRaceTime *selected = self.lanes[indexPath.row];
+  [self stopTimerWithCurrentLane:selected];
+}
+
 
 - (void)addLapTimeForRaceTime:(GNZRaceTime *)selectedTime {
   [selectedTime addLap:[NSDate date]];
@@ -175,10 +200,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //  static NSString *basicCell = @"basicCell";
   static NSString *laneCell = @"laneCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:laneCell];
+  GNZLaneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:laneCell];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:laneCell];
+    cell = [[GNZLaneTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:laneCell];
   }
+  GNZRaceTime *currentTime = self.lanes[indexPath.row];
+  cell.raceTime = currentTime;
+  cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
+  [cell.splitButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
 //  GNZRaceTime *currentTime = self.lanes[indexPath.row];
 //  NSTimeInterval elapsedTime = 0;
 //  if (currentTime.lapTimes.count) {
