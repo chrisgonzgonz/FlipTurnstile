@@ -38,6 +38,7 @@
   self.lanes = [[NSMutableArray alloc] init];
   
   [self.view.tableView registerNib:[UINib nibWithNibName:@"GNZLaneTableViewCell" bundle:nil] forCellReuseIdentifier:@"laneCell"];
+  
 //  Fake data, kill this
   GNZRaceTime *marcTime = [[GNZRaceTime alloc] init];
   marcTime.name = @"Marc";
@@ -49,7 +50,6 @@
 }
 
 - (void)timerTick:(NSTimer *)sender {
-//  [self.view.tableView reloadData];
   NSTimeInterval elapsedTime = 0;
   elapsedTime = [[NSDate date] timeIntervalSinceDate:self.startDate];
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -105,8 +105,10 @@
 }
 
 - (void)stopTimerWithCurrentLane:(GNZRaceTime *)lane {
-  [lane addLap:[NSDate date]];
-  lane.raceComplete = YES;
+  if (!lane.raceComplete) {
+    [lane addLap:[NSDate date]];
+    lane.raceComplete = YES;
+  }
 }
 
 - (void)stopTimer:(UIButton *)sender {
@@ -192,18 +194,22 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     [self.lanes removeObjectAtIndex:indexPath.row];
+    [tableView beginUpdates];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView endUpdates];
   }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   GNZRaceTime *selectedTime = self.lanes[indexPath.row];
-  [self addLapTimeForRaceTime:selectedTime];
-  [tableView beginUpdates];
-  [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-  [tableView endUpdates];
+  if (!selectedTime.raceComplete) {
+    [self addLapTimeForRaceTime:selectedTime];
+    [tableView beginUpdates];
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [tableView endUpdates];
+  }
 }
 
 #pragma mark - TableView Datasource
