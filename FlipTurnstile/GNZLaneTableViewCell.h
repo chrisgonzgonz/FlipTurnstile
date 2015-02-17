@@ -12,5 +12,5 @@
 @interface GNZLaneTableViewCell : UITableViewCell
 @property (nonatomic) GNZRaceTime *raceTime;
 @property (weak, nonatomic) IBOutlet UILabel *laneLabel;
-@property (weak, nonatomic) IBOutlet UIButton *splitButton;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @end

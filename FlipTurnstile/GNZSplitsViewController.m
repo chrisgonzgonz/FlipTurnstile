@@ -207,7 +207,7 @@
   GNZRaceTime *currentTime = self.lanes[indexPath.row];
   cell.raceTime = currentTime;
   cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
-  [cell.splitButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
+  [cell.stopButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
 //  GNZRaceTime *currentTime = self.lanes[indexPath.row];
 //  NSTimeInterval elapsedTime = 0;
 //  if (currentTime.lapTimes.count) {
