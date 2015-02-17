@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *swimmerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lapsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end
 @implementation GNZLaneTableViewCell
 
