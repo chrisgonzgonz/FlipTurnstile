@@ -16,6 +16,8 @@
 @property (nonatomic) NSMutableArray *lanes;
 @property (nonatomic) NSTimer *tableViewTimer;
 @property (weak, nonatomic) UIButton *toggleAllButton;
+@property (nonatomic) NSDate *startDate;
+@property (weak, nonatomic) UILabel *headerLabel;
 @end
 
 @implementation GNZSplitsViewController
@@ -44,11 +46,16 @@
   GNZRaceTime *chrisTime = [[GNZRaceTime alloc] init];
   chrisTime.name = @"Chris";
   self.lanes = [[NSMutableArray alloc] initWithArray:@[marcTime, meganTime, chrisTime]];
-  
 }
 
 - (void)timerTick:(NSTimer *)sender {
-  [self.view.tableView reloadData];
+//  [self.view.tableView reloadData];
+  NSTimeInterval elapsedTime = 0;
+  elapsedTime = [[NSDate date] timeIntervalSinceDate:self.startDate];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"mm:ss.SS"];
+  NSDate *intervalDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
+  self.headerLabel.text = [formatter stringFromDate:intervalDate];
 }
 
 - (void)addLane:(UIBarButtonItem *)sender {
@@ -84,6 +91,7 @@
         [self addLapTimeForRaceTime:currentLane];
       }
     }
+    self.startDate = [NSDate date];
     [self.toggleAllButton setBackgroundColor:[UIColor colorWithRed:0.904 green:0.000 blue:0.050 alpha:0.800]];
   } else {
     for (NSInteger index = 0; index < self.lanes.count; index++) {
@@ -106,6 +114,9 @@
   NSIndexPath *indexPath = [self.view.tableView indexPathForRowAtPoint:buttonPosition];
   GNZRaceTime *selected = self.lanes[indexPath.row];
   [self stopTimerWithCurrentLane:selected];
+  [self.view.tableView beginUpdates];
+  [self.view.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+  [self.view.tableView endUpdates];
 }
 
 
@@ -190,15 +201,35 @@
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   GNZRaceTime *selectedTime = self.lanes[indexPath.row];
   [self addLapTimeForRaceTime:selectedTime];
+  [tableView beginUpdates];
+  [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+  [tableView endUpdates];
 }
 
 #pragma mark - TableView Datasource
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  UILabel *headerView = [[UILabel alloc] init];
+  self.headerLabel = headerView;
+  self.headerLabel.textAlignment = NSTextAlignmentCenter;
+  self.headerLabel.backgroundColor = [UIColor colorWithRed:0.761 green:0.788 blue:0.936 alpha:1.000];
+  
+  self.headerLabel.text = @"HOPE";
+  return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  return 44;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.lanes.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  return 50;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//  static NSString *basicCell = @"basicCell";
   static NSString *laneCell = @"laneCell";
   GNZLaneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:laneCell];
   if (!cell) {
@@ -208,18 +239,8 @@
   cell.raceTime = currentTime;
   cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
   [cell.splitButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
-//  GNZRaceTime *currentTime = self.lanes[indexPath.row];
-//  NSTimeInterval elapsedTime = 0;
-//  if (currentTime.lapTimes.count) {
-//    elapsedTime = [[NSDate date] timeIntervalSinceDate:currentTime.lapTimes.firstObject];
-//  }
-//  cell.textLabel.text = [NSString stringWithFormat:@"Lane: %lu Swimmer: %@ Time: %@", indexPath.row+1, currentTime.name, currentTime.lapTimes.count ? @(elapsedTime) : @"00" ];
-//  NSMutableString *lapString = [[NSMutableString alloc] init];
-//  for (NSInteger x = 0; x < currentTime.lapTimes.count; x++) {
-//    NSInteger lapTime = [currentTime lapTimeForIndex:x];
-//    if (x<currentTime.lapTimes.count-1) [lapString appendFormat:@"Lap %ld: %ld,", x+1, (long)lapTime];
-//  }
-//  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", lapString];
+  
+  cell.laneLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
   return cell;
 }
 
