@@ -28,6 +28,10 @@
   // Configure the view for the selected state
 }
 
++ (UINib *)nib {
+  return [UINib nibWithNibName:@"GNZLaneTableViewCell" bundle:nil];
+}
+
 - (void)setRaceTime:(GNZRaceTime *)raceTime {
   self.swimmerLabel.text = raceTime.name;
   self.lapsLabel.text = raceTime.lapDescription.length ? raceTime.lapDescription : @"Lap Times:";

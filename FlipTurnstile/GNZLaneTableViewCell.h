@@ -13,4 +13,5 @@
 @property (nonatomic) GNZRaceTime *raceTime;
 @property (weak, nonatomic) IBOutlet UILabel *laneLabel;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
++ (UINib *)nib;
 @end
