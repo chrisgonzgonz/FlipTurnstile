@@ -11,7 +11,7 @@
 #import "GNZSwimmer.h"
 #import "GNZAttendance.h"
 #import "NSDate+GNZDateNormalizer.h"
-#import "GNZFetchedResultsControllerDataSource.h"
+#import "GNZFetchedResultsDataSource.h"
 #import "GNZRosterTableViewCell+configureForSwimmer.h"
 
 static NSString * const cellID = @"Cell";
@@ -20,7 +20,7 @@ static NSString * const cellID = @"Cell";
 @property (nonatomic) UITableView *view;
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic) GNZFetchedResultsControllerDataSource *fetchedResultsControllerDataSource;
+@property (nonatomic) GNZFetchedResultsDataSource *dataSource;
 
 @end
 
@@ -50,8 +50,8 @@ static NSString * const cellID = @"Cell";
     [cell configureForSwimmer:swimmer];
     NSLog(@"configuring cell");
   };
-  self.fetchedResultsControllerDataSource = [[GNZFetchedResultsControllerDataSource alloc] initWithFetchedResultsController:self.fetchedResultsController cellIdentifier:cellID configureCellBlock:configureCell];
-  self.view.dataSource = self.fetchedResultsControllerDataSource;
+  self.dataSource = [[GNZFetchedResultsDataSource alloc] initWithFetchedResultsController:self.fetchedResultsController cellIdentifier:cellID configureCellBlock:configureCell];
+  self.view.dataSource = self.dataSource;
   [self.view registerClass:[GNZRosterTableViewCell class] forCellReuseIdentifier:cellID];
 }
 

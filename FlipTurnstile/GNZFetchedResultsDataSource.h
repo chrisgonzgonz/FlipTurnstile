@@ -12,7 +12,7 @@
 
 typedef void (^TableViewCellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
 
-@interface GNZFetchedResultsControllerDataSource : NSObject <UITableViewDataSource>
+@interface GNZFetchedResultsDataSource : NSObject <UITableViewDataSource>
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
                                   cellIdentifier:(NSString *)cellIdentifier
                               configureCellBlock:(TableViewCellConfigureBlock)configureCellBlock;

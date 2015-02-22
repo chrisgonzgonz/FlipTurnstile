@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 GNZ. All rights reserved.
 //
 
-#import "GNZFetchedResultsControllerDataSource.h"
+#import "GNZFetchedResultsDataSource.h"
 
 #import <CoreData/NSFetchedResultsController.h>
 
-@interface GNZFetchedResultsControllerDataSource () <NSFetchedResultsControllerDelegate>
+@interface GNZFetchedResultsDataSource () <NSFetchedResultsControllerDelegate>
 @property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, copy) NSString *cellIdentifier;
 @property (nonatomic, copy) TableViewCellConfigureBlock configureCellBlock;
 @end
-@implementation GNZFetchedResultsControllerDataSource
+@implementation GNZFetchedResultsDataSource
 
 - (instancetype)init
 {
