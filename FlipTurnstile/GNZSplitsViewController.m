@@ -21,7 +21,7 @@ static NSString * const LaneCellIdentifier = @"GNZLaneTableViewCell";
 @property (weak, nonatomic) UIButton *toggleAllButton;
 @property (nonatomic) NSDate *startDate;
 @property (weak, nonatomic) UILabel *headerLabel;
-@property (nonatomic) GNZArrayDataSource *raceTimeArrayDataSource;
+@property (nonatomic) GNZArrayDataSource *dataSource;
 @end
 
 @implementation GNZSplitsViewController
@@ -61,8 +61,8 @@ static NSString * const LaneCellIdentifier = @"GNZLaneTableViewCell";
     [cell.stopButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
     cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
   };
-  self.raceTimeArrayDataSource = [[GNZArrayDataSource alloc] initWithItems:self.lanes cellIdentifier:LaneCellIdentifier configureCellBlock:configureCell];
-  self.view.tableView.dataSource = self.raceTimeArrayDataSource;
+  self.dataSource = [[GNZArrayDataSource alloc] initWithItems:self.lanes cellIdentifier:LaneCellIdentifier configureCellBlock:configureCell];
+  self.view.tableView.dataSource = self.dataSource;
 }
 
 - (void)timerTick:(NSTimer *)sender {
