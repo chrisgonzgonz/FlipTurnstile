@@ -14,9 +14,7 @@
     if (!date) return nil;
     unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSCalendar* calendar = [NSCalendar currentCalendar];
-    
     NSDateComponents* components = [calendar components:flags fromDate:date];
-    
     return [calendar dateFromComponents:components];
 }
 
