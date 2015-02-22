@@ -11,11 +11,16 @@
 #import "GNZSwimmer.h"
 #import "GNZAttendance.h"
 #import "NSDate+GNZDateNormalizer.h"
+#import "GNZFetchedResultsControllerDataSource.h"
+#import "GNZRosterTableViewCell+configureForSwimmer.h"
 
-@interface GNZRosterViewController () <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+static NSString * const cellID = @"Cell";
+
+@interface GNZRosterViewController () <UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic) UITableView *view;
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic) GNZFetchedResultsControllerDataSource *fetchedResultsControllerDataSource;
 
 @end
 
@@ -23,54 +28,47 @@
 
 - (void)loadView {
   self.view = [[UITableView alloc] init];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"M/d/yyyy"];
+  self.navigationItem.title = [NSString stringWithFormat: @"Roster: %@", [formatter stringFromDate:[NSDate date]]];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.dataSource = self;
-  self.view.delegate = self;
-  // Do any additional setup after loading the view.
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateFormat:@"M/d/yyyy"];
-  
-  
-  self.navigationItem.title = [NSString stringWithFormat: @"Roster: %@", [formatter stringFromDate:[NSDate date]]];
   
   [[GNZSwimmerDataStore sharedStore] roster];
   NSLog(@"%@", [[GNZSwimmerDataStore sharedStore] applicationDocumentsDirectory]);
-  
-  
   self.managedObjectContext = [[GNZSwimmerDataStore sharedStore] managedObjectContext];
-  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([GNZSwimmer class])];
-  [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(firstName)) ascending:YES]]];
-  self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-  self.fetchedResultsController.delegate = self;
-  NSError *error;
-  [self.fetchedResultsController performFetch:&error];
-  if (error) {
-    NSLog(@"Unable to perform fetch.");
-    NSLog(@"%@, %@", error, error.localizedDescription);
-  }
   
+  [self setupTableView];
 }
 
-#pragma mark - UITableView DataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  NSArray *sections = [self.fetchedResultsController sections];
-  id <NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
-  return [sectionInfo numberOfObjects];
+- (void)setupTableView {
+  self.view.delegate = self;
+  
+  TableViewCellConfigureBlock configureCell = ^(GNZRosterTableViewCell *cell, GNZSwimmer *swimmer, NSIndexPath *indexPath){
+    [cell configureForSwimmer:swimmer];
+    NSLog(@"configuring cell");
+  };
+  self.fetchedResultsControllerDataSource = [[GNZFetchedResultsControllerDataSource alloc] initWithFetchedResultsController:self.fetchedResultsController cellIdentifier:cellID configureCellBlock:configureCell];
+  self.view.dataSource = self.fetchedResultsControllerDataSource;
+  [self.view registerClass:[GNZRosterTableViewCell class] forCellReuseIdentifier:cellID];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *cellID = @"Cell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-  
-  if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+- (NSFetchedResultsController *)fetchedResultsController {
+  if (!_fetchedResultsController) {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([GNZSwimmer class])];
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(firstName)) ascending:YES]]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController.delegate = self;
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+      NSLog(@"Unable to perform fetch.");
+      NSLog(@"%@, %@", error, error.localizedDescription);
+    }
   }
-  [self configureCell:cell atIndexPath:indexPath];
-  
-  return cell;
+  return _fetchedResultsController;
 }
 
 #pragma mark - UITableView Delegate
@@ -107,7 +105,7 @@
       break;
     }
     case NSFetchedResultsChangeUpdate: {
-      [self configureCell:(UITableViewCell *)[self.view cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+      [self.view reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
       break;
     }
     case NSFetchedResultsChangeMove: {
@@ -119,33 +117,4 @@
       break;
   }
 }
-
-#pragma mark - Helper methods
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-  GNZSwimmer *swimmer = [self.fetchedResultsController objectAtIndexPath:indexPath];
-  
-  NSInteger remainingPractices = [swimmer.paymentOption integerValue] - swimmer.attendances.count;
-  BOOL today = NO;
-  GNZAttendance *lastAttendance = swimmer.attendances.lastObject;
-  
-  if ([[NSDate normalizedDate:lastAttendance.practiceDate] isEqualToDate:[NSDate normalizedDate:[NSDate date]]]) {
-    today = YES;
-  }
-  
-  cell.textLabel.text = swimmer.firstName;
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ : %@", today ? @"YES" : @"NO",remainingPractices > 50 ? @"🔗" : @(remainingPractices)];
-  cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-  
-  if (remainingPractices > 5) {
-    cell.backgroundColor = [UIColor greenColor];
-  } else if (remainingPractices > 3) {
-    cell.backgroundColor = [UIColor yellowColor];
-  } else if (remainingPractices > 1 ) {
-    cell.backgroundColor = [UIColor orangeColor];
-  } else {
-    cell.backgroundColor = [UIColor redColor];
-  }
-}
-
 @end

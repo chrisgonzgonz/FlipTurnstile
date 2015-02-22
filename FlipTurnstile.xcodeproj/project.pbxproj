@@ -31,6 +31,9 @@
 		72DB882B1A916A8900D49F0E /* GNZRaceTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB882A1A916A8900D49F0E /* GNZRaceTime.m */; };
 		72E773E91A9951420042BA47 /* GNZArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773E81A9951420042BA47 /* GNZArrayDataSource.m */; };
 		72E773ED1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773EC1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.m */; };
+		72E773F01A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773EF1A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.m */; };
+		72E773F31A9A3F820042BA47 /* UITableViewCell+configureForSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773F21A9A3F820042BA47 /* UITableViewCell+configureForSwimmer.m */; };
+		72E773F61A9A42B70042BA47 /* GNZRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */; };
 		72FFF4D21A92AF9400EA63BD /* GNZLaneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */; };
 		72FFF4D51A92AFA200EA63BD /* GNZLaneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +88,12 @@
 		72E773E81A9951420042BA47 /* GNZArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZArrayDataSource.m; sourceTree = "<group>"; };
 		72E773EB1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GNZLaneTableViewCell+ConfigureForRaceTime.h"; sourceTree = "<group>"; };
 		72E773EC1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GNZLaneTableViewCell+ConfigureForRaceTime.m"; sourceTree = "<group>"; };
+		72E773EE1A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZFetchedResultsControllerDataSource.h; sourceTree = "<group>"; };
+		72E773EF1A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZFetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
+		72E773F11A9A3F820042BA47 /* GNZRosterTableViewCell+configureForSwimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GNZRosterTableViewCell+configureForSwimmer.h"; sourceTree = "<group>"; };
+		72E773F21A9A3F820042BA47 /* UITableViewCell+configureForSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+configureForSwimmer.m"; sourceTree = "<group>"; };
+		72E773F41A9A42B70042BA47 /* GNZRosterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterTableViewCell.h; sourceTree = "<group>"; };
+		72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterTableViewCell.m; sourceTree = "<group>"; };
 		72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNZLaneTableViewCell.xib; sourceTree = "<group>"; };
 		72FFF4D31A92AFA200EA63BD /* GNZLaneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZLaneTableViewCell.h; sourceTree = "<group>"; };
 		72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZLaneTableViewCell.m; sourceTree = "<group>"; };
@@ -232,6 +241,8 @@
 				725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */,
 				72E773EB1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.h */,
 				72E773EC1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.m */,
+				72E773F11A9A3F820042BA47 /* GNZRosterTableViewCell+configureForSwimmer.h */,
+				72E773F21A9A3F820042BA47 /* UITableViewCell+configureForSwimmer.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -244,6 +255,8 @@
 				72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */,
 				72FFF4D31A92AFA200EA63BD /* GNZLaneTableViewCell.h */,
 				72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */,
+				72E773F41A9A42B70042BA47 /* GNZRosterTableViewCell.h */,
+				72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -263,6 +276,8 @@
 			children = (
 				72E773E71A9951420042BA47 /* GNZArrayDataSource.h */,
 				72E773E81A9951420042BA47 /* GNZArrayDataSource.m */,
+				72E773EE1A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.h */,
+				72E773EF1A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -422,12 +437,15 @@
 				72FFF4D51A92AFA200EA63BD /* GNZLaneTableViewCell.m in Sources */,
 				72E773E91A9951420042BA47 /* GNZArrayDataSource.m in Sources */,
 				725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */,
+				72E773F31A9A3F820042BA47 /* UITableViewCell+configureForSwimmer.m in Sources */,
 				72DB882B1A916A8900D49F0E /* GNZRaceTime.m in Sources */,
+				72E773F01A9A2D270042BA47 /* GNZFetchedResultsControllerDataSource.m in Sources */,
 				72E773ED1A9957C70042BA47 /* GNZLaneTableViewCell+ConfigureForRaceTime.m in Sources */,
 				725FE5A71A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m in Sources */,
 				7272DB411A6C08C400423929 /* GNZSwimmerDataStore.m in Sources */,
 				725FE5971A6C54FC00781EFF /* GNZRoster.m in Sources */,
 				725FE59A1A6C54FD00781EFF /* GNZSwimmer.m in Sources */,
+				72E773F61A9A42B70042BA47 /* GNZRosterTableViewCell.m in Sources */,
 				7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */,
 				7275DABC1A902DC100DBAEE2 /* GNZSplitsView.m in Sources */,
 				7272DB0B1A6B1F1900423929 /* main.m in Sources */,
