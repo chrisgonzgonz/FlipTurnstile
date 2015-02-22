@@ -29,6 +29,7 @@
 		72DB88261A914F0800D49F0E /* stopWatch2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB88251A914F0800D49F0E /* stopWatch2@2x.png */; };
 		72DB88281A914F6F00D49F0E /* clipBoard1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB88271A914F6F00D49F0E /* clipBoard1@2x.png */; };
 		72DB882B1A916A8900D49F0E /* GNZRaceTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB882A1A916A8900D49F0E /* GNZRaceTime.m */; };
+		72E773E91A9951420042BA47 /* GNZArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773E81A9951420042BA47 /* GNZArrayDataSource.m */; };
 		72FFF4D21A92AF9400EA63BD /* GNZLaneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */; };
 		72FFF4D51A92AFA200EA63BD /* GNZLaneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,8 @@
 		72DB88271A914F6F00D49F0E /* clipBoard1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipBoard1@2x.png"; sourceTree = "<group>"; };
 		72DB88291A916A8900D49F0E /* GNZRaceTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRaceTime.h; sourceTree = "<group>"; };
 		72DB882A1A916A8900D49F0E /* GNZRaceTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRaceTime.m; sourceTree = "<group>"; };
+		72E773E71A9951420042BA47 /* GNZArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZArrayDataSource.h; sourceTree = "<group>"; };
+		72E773E81A9951420042BA47 /* GNZArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZArrayDataSource.m; sourceTree = "<group>"; };
 		72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNZLaneTableViewCell.xib; sourceTree = "<group>"; };
 		72FFF4D31A92AFA200EA63BD /* GNZLaneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZLaneTableViewCell.h; sourceTree = "<group>"; };
 		72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZLaneTableViewCell.m; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 			children = (
 				7272DB0C1A6B1F1900423929 /* AppDelegate.h */,
 				7272DB0D1A6B1F1900423929 /* AppDelegate.m */,
+				72E773EA1A9951480042BA47 /* Helpers */,
 				7275DABD1A902DC700DBAEE2 /* Views */,
 				7275DAB91A902BBF00DBAEE2 /* Categories */,
 				725FE5781A6C31F100781EFF /* Controllers */,
@@ -247,6 +251,15 @@
 				7272DB401A6C08C400423929 /* GNZSwimmerDataStore.m */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		72E773EA1A9951480042BA47 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				72E773E71A9951420042BA47 /* GNZArrayDataSource.h */,
+				72E773E81A9951420042BA47 /* GNZArrayDataSource.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		D61DB4B8E702CF04F37FB850 /* Frameworks */ = {
@@ -402,6 +415,7 @@
 			files = (
 				725FE59D1A6C54FD00781EFF /* GNZAttendance.m in Sources */,
 				72FFF4D51A92AFA200EA63BD /* GNZLaneTableViewCell.m in Sources */,
+				72E773E91A9951420042BA47 /* GNZArrayDataSource.m in Sources */,
 				725FE5771A6C317C00781EFF /* GNZRosterViewController.m in Sources */,
 				72DB882B1A916A8900D49F0E /* GNZRaceTime.m in Sources */,
 				725FE5A71A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m in Sources */,
