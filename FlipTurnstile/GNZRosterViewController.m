@@ -41,8 +41,8 @@
   
   
   self.managedObjectContext = [[GNZSwimmerDataStore sharedStore] managedObjectContext];
-  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"GNZSwimmer"];
-  [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES]]];
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([GNZSwimmer class])];
+  [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(firstName)) ascending:YES]]];
   self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
   self.fetchedResultsController.delegate = self;
   NSError *error;
