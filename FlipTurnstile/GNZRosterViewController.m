@@ -12,17 +12,23 @@
 #import "GNZAttendance.h"
 #import "NSDate+GNZDateNormalizer.h"
 
-@interface GNZRosterViewController () <NSFetchedResultsControllerDelegate>
-@property (weak, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@interface GNZRosterViewController () <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@property (nonatomic) UITableView *view;
+@property (nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
 @implementation GNZRosterViewController
 
+- (void)loadView {
+  self.view = [[UITableView alloc] init];
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.view.dataSource = self;
+  self.view.delegate = self;
   // Do any additional setup after loading the view.
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"M/d/yyyy"];
@@ -30,7 +36,6 @@
   
   self.navigationItem.title = [NSString stringWithFormat: @"Roster: %@", [formatter stringFromDate:[NSDate date]]];
   
-  [self addTableView];
   [[GNZSwimmerDataStore sharedStore] roster];
   NSLog(@"%@", [[GNZSwimmerDataStore sharedStore] applicationDocumentsDirectory]);
   
@@ -85,29 +90,29 @@
 
 #pragma mark - NSFetchedResultsController Delegate
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-  [self.tableView beginUpdates];
+  [self.view beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-  [self.tableView endUpdates];
+  [self.view endUpdates];
 }
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
   switch (type) {
     case NSFetchedResultsChangeInsert:
-      [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [self.view insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
     case NSFetchedResultsChangeDelete: {
-      [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [self.view deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
     }
     case NSFetchedResultsChangeUpdate: {
-      [self configureCell:(UITableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+      [self configureCell:(UITableViewCell *)[self.view cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
       break;
     }
     case NSFetchedResultsChangeMove: {
-      [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-      [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [self.view deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [self.view insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
     }
     default:
@@ -141,20 +146,6 @@
   } else {
     cell.backgroundColor = [UIColor redColor];
   }
-}
-
-- (void)addTableView {
-  UITableView *rosterTable = [[UITableView alloc] init];
-  self.tableView = rosterTable;
-  rosterTable.dataSource = self;
-  rosterTable.delegate = self;
-  [self.view addSubview:rosterTable];
-  [rosterTable setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(rosterTable);
-  NSArray *hConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[rosterTable]|" options:0 metrics:nil views:viewDictionary];
-  [self.view addConstraints:hConstraints];
-  NSArray *vConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[rosterTable]|" options:0 metrics:nil views:viewDictionary];
-  [self.view addConstraints:vConstraints];
 }
 
 @end

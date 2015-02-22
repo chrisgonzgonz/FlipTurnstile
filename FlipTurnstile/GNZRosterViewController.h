@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GNZRosterViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GNZRosterViewController : UIViewController
 
 @end
