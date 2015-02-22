@@ -10,14 +10,18 @@
 
 #import "GNZRaceTime.h"
 #import "GNZSplitsView.h"
-#import "GNZLaneTableViewCell.h"
-@interface GNZSplitsViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+#import "GNZLaneTableViewCell+ConfigureForRaceTime.h"
+#import "GNZArrayDataSource.h"
+static NSString * const LaneCellIdentifier = @"GNZLaneTableViewCell";
+
+@interface GNZSplitsViewController () <UITableViewDelegate, UITextFieldDelegate>
 @property (nonatomic) GNZSplitsView *view;
 @property (nonatomic) NSMutableArray *lanes;
 @property (nonatomic) NSTimer *tableViewTimer;
 @property (weak, nonatomic) UIButton *toggleAllButton;
 @property (nonatomic) NSDate *startDate;
 @property (weak, nonatomic) UILabel *headerLabel;
+@property (nonatomic) GNZArrayDataSource *raceTimeArrayDataSource;
 @end
 
 @implementation GNZSplitsViewController
@@ -34,10 +38,9 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.tableView.delegate = self;
-  self.view.tableView.dataSource = self;
   self.lanes = [[NSMutableArray alloc] init];
   
-  [self.view.tableView registerNib:[UINib nibWithNibName:@"GNZLaneTableViewCell" bundle:nil] forCellReuseIdentifier:@"laneCell"];
+  [self.view.tableView registerNib:[GNZLaneTableViewCell nib] forCellReuseIdentifier:LaneCellIdentifier];
   
 //  Fake data, kill this
   GNZRaceTime *marcTime = [[GNZRaceTime alloc] init];
@@ -47,6 +50,19 @@
   GNZRaceTime *chrisTime = [[GNZRaceTime alloc] init];
   chrisTime.name = @"Chris";
   self.lanes = [[NSMutableArray alloc] initWithArray:@[marcTime, meganTime, chrisTime]];
+//  end fake data
+  
+  [self setupTableView];
+}
+
+- (void)setupTableView {
+  TableViewCellConfigureBlock configureCell = ^(GNZLaneTableViewCell *cell, GNZRaceTime *raceTime, NSIndexPath *indexPath) {
+    [cell configureForRaceTime:raceTime];
+    [cell.stopButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
+    cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
+  };
+  self.raceTimeArrayDataSource = [[GNZArrayDataSource alloc] initWithItems:self.lanes cellIdentifier:LaneCellIdentifier configureCellBlock:configureCell];
+  self.view.tableView.dataSource = self.raceTimeArrayDataSource;
 }
 
 - (void)timerTick:(NSTimer *)sender {
@@ -212,8 +228,6 @@
   }
 }
 
-#pragma mark - TableView Datasource
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   UILabel *headerView = [[UILabel alloc] init];
   self.headerLabel = headerView;
@@ -228,25 +242,8 @@
   return 44;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.lanes.count;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return 50;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *laneCell = @"laneCell";
-  GNZLaneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:laneCell];
-  if (!cell) {
-    cell = [[GNZLaneTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:laneCell];
-  }
-  GNZRaceTime *currentTime = self.lanes[indexPath.row];
-  cell.raceTime = currentTime;
-  cell.laneLabel.text = [NSString stringWithFormat:@"Lane: %@", @(indexPath.row+1)];
-  [cell.stopButton addTarget:self action:@selector(stopTimer:) forControlEvents:UIControlEventTouchUpInside];
-  
-  cell.laneLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
-  return cell;
-}
+
 @end

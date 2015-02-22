@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^TableViewCellConfigureBlock)(id cell, id item);
+typedef void (^TableViewCellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
 
 @interface GNZArrayDataSource : NSObject <UITableViewDataSource>
 - (id)initWithItems:(NSArray *)items

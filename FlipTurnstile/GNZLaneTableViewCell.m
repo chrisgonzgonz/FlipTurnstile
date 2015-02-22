@@ -8,13 +8,6 @@
 
 #import "GNZLaneTableViewCell.h"
 
-#import "GNZRaceTime.h"
-@interface GNZLaneTableViewCell ()
-@property (weak, nonatomic) IBOutlet UILabel *swimmerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lapsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-
-@end
 @implementation GNZLaneTableViewCell
 
 - (void)awakeFromNib {
@@ -30,12 +23,6 @@
 
 + (UINib *)nib {
   return [UINib nibWithNibName:@"GNZLaneTableViewCell" bundle:nil];
-}
-
-- (void)setRaceTime:(GNZRaceTime *)raceTime {
-  self.swimmerLabel.text = raceTime.name;
-  self.lapsLabel.text = raceTime.lapDescription.length ? raceTime.lapDescription : @"Lap Times:";
-  self.timeLabel.text = raceTime.timeDescription;
 }
 
 @end

@@ -43,8 +43,27 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
   id item = [self itemAtIndexPath:indexPath];
-  self.configureCellBlock(cell, item);
+  self.configureCellBlock(cell, item, indexPath);
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+  NSMutableArray *mutableItems = [self.items mutableCopy];
+  [mutableItems exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+  self.items = [mutableItems copy];
+  [tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  NSMutableArray *mutableItems = [self.items mutableCopy];
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [mutableItems removeObjectAtIndex:indexPath.row];
+    self.items = [mutableItems copy];
+    [tableView beginUpdates];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView endUpdates];
+  }
 }
 
 @end

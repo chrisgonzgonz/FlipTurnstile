@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class GNZRaceTime;
 @interface GNZLaneTableViewCell : UITableViewCell
-@property (nonatomic) GNZRaceTime *raceTime;
 @property (weak, nonatomic) IBOutlet UILabel *laneLabel;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UILabel *swimmerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lapsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 + (UINib *)nib;
 @end
