@@ -34,6 +34,7 @@
 		72E773F01A9A2D270042BA47 /* GNZFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773EF1A9A2D270042BA47 /* GNZFetchedResultsDataSource.m */; };
 		72E773F31A9A3F820042BA47 /* GNZRosterTableViewCell+configureForSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773F21A9A3F820042BA47 /* GNZRosterTableViewCell+configureForSwimmer.m */; };
 		72E773F61A9A42B70042BA47 /* GNZRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */; };
+		72E773FC1A9A87320042BA47 /* GNZArrayDataSourceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E773FB1A9A87320042BA47 /* GNZArrayDataSourceSpec.m */; };
 		72FFF4D21A92AF9400EA63BD /* GNZLaneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */; };
 		72FFF4D51A92AFA200EA63BD /* GNZLaneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		72E773F21A9A3F820042BA47 /* GNZRosterTableViewCell+configureForSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GNZRosterTableViewCell+configureForSwimmer.m"; sourceTree = "<group>"; };
 		72E773F41A9A42B70042BA47 /* GNZRosterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZRosterTableViewCell.h; sourceTree = "<group>"; };
 		72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZRosterTableViewCell.m; sourceTree = "<group>"; };
+		72E773FB1A9A87320042BA47 /* GNZArrayDataSourceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZArrayDataSourceSpec.m; sourceTree = "<group>"; };
 		72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GNZLaneTableViewCell.xib; sourceTree = "<group>"; };
 		72FFF4D31A92AFA200EA63BD /* GNZLaneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNZLaneTableViewCell.h; sourceTree = "<group>"; };
 		72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZLaneTableViewCell.m; sourceTree = "<group>"; };
@@ -157,10 +159,8 @@
 		725FE5781A6C31F100781EFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				725FE5751A6C317C00781EFF /* GNZRosterViewController.h */,
-				725FE5761A6C317C00781EFF /* GNZRosterViewController.m */,
-				72506C8F1A8AF5BC00AEC9FA /* GNZSplitsViewController.h */,
-				72506C901A8AF5BC00AEC9FA /* GNZSplitsViewController.m */,
+				72E773F91A9A846C0042BA47 /* Roster */,
+				72E773FA1A9A84750042BA47 /* Splits */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				7272DB221A6B1F1900423929 /* Supporting Files */,
+				72E773FB1A9A87320042BA47 /* GNZArrayDataSourceSpec.m */,
 			);
 			path = FlipTurnstileTests;
 			sourceTree = "<group>";
@@ -250,13 +251,8 @@
 		7275DABD1A902DC700DBAEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7275DABA1A902DC100DBAEE2 /* GNZSplitsView.h */,
-				7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */,
-				72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */,
-				72FFF4D31A92AFA200EA63BD /* GNZLaneTableViewCell.h */,
-				72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */,
-				72E773F41A9A42B70042BA47 /* GNZRosterTableViewCell.h */,
-				72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */,
+				72E773F71A9A84460042BA47 /* Splits */,
+				72E773F81A9A84560042BA47 /* Roster */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -280,6 +276,45 @@
 				72E773EF1A9A2D270042BA47 /* GNZFetchedResultsDataSource.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		72E773F71A9A84460042BA47 /* Splits */ = {
+			isa = PBXGroup;
+			children = (
+				7275DABA1A902DC100DBAEE2 /* GNZSplitsView.h */,
+				7275DABB1A902DC100DBAEE2 /* GNZSplitsView.m */,
+				72FFF4D11A92AF9400EA63BD /* GNZLaneTableViewCell.xib */,
+				72FFF4D31A92AFA200EA63BD /* GNZLaneTableViewCell.h */,
+				72FFF4D41A92AFA200EA63BD /* GNZLaneTableViewCell.m */,
+			);
+			name = Splits;
+			sourceTree = "<group>";
+		};
+		72E773F81A9A84560042BA47 /* Roster */ = {
+			isa = PBXGroup;
+			children = (
+				72E773F41A9A42B70042BA47 /* GNZRosterTableViewCell.h */,
+				72E773F51A9A42B70042BA47 /* GNZRosterTableViewCell.m */,
+			);
+			name = Roster;
+			sourceTree = "<group>";
+		};
+		72E773F91A9A846C0042BA47 /* Roster */ = {
+			isa = PBXGroup;
+			children = (
+				725FE5751A6C317C00781EFF /* GNZRosterViewController.h */,
+				725FE5761A6C317C00781EFF /* GNZRosterViewController.m */,
+			);
+			name = Roster;
+			sourceTree = "<group>";
+		};
+		72E773FA1A9A84750042BA47 /* Splits */ = {
+			isa = PBXGroup;
+			children = (
+				72506C8F1A8AF5BC00AEC9FA /* GNZSplitsViewController.h */,
+				72506C901A8AF5BC00AEC9FA /* GNZSplitsViewController.m */,
+			);
+			name = Splits;
 			sourceTree = "<group>";
 		};
 		D61DB4B8E702CF04F37FB850 /* Frameworks */ = {
@@ -458,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E773FC1A9A87320042BA47 /* GNZArrayDataSourceSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
