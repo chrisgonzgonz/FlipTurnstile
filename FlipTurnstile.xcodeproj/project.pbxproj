@@ -17,6 +17,7 @@
 		725FE5A31A6C758F00781EFF /* infinite.png in Resources */ = {isa = PBXBuildFile; fileRef = 725FE5A11A6C758F00781EFF /* infinite.png */; };
 		725FE5A41A6C758F00781EFF /* infinite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 725FE5A21A6C758F00781EFF /* infinite@2x.png */; };
 		725FE5A71A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */; };
+		7263AAA11A9AA32C00EB807E /* GNZFetchedResultsDataSourceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263AAA01A9AA32C00EB807E /* GNZFetchedResultsDataSourceSpec.m */; };
 		7272DB0B1A6B1F1900423929 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0A1A6B1F1900423929 /* main.m */; };
 		7272DB0E1A6B1F1900423929 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7272DB0D1A6B1F1900423929 /* AppDelegate.m */; };
 		7272DB161A6B1F1900423929 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7272DB151A6B1F1900423929 /* Images.xcassets */; };
@@ -65,6 +66,7 @@
 		725FE5A21A6C758F00781EFF /* infinite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infinite@2x.png"; sourceTree = "<group>"; };
 		725FE5A51A6C7A7700781EFF /* NSDate+GNZDateNormalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GNZDateNormalizer.h"; sourceTree = "<group>"; };
 		725FE5A61A6C7A7700781EFF /* NSDate+GNZDateNormalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GNZDateNormalizer.m"; sourceTree = "<group>"; };
+		7263AAA01A9AA32C00EB807E /* GNZFetchedResultsDataSourceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNZFetchedResultsDataSourceSpec.m; sourceTree = "<group>"; };
 		7272DB051A6B1F1900423929 /* FlipTurnstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlipTurnstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7272DB091A6B1F1900423929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7272DB0A1A6B1F1900423929 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				7272DB221A6B1F1900423929 /* Supporting Files */,
 				72E773FB1A9A87320042BA47 /* GNZArrayDataSourceSpec.m */,
+				7263AAA01A9AA32C00EB807E /* GNZFetchedResultsDataSourceSpec.m */,
 			);
 			path = FlipTurnstileTests;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7263AAA11A9AA32C00EB807E /* GNZFetchedResultsDataSourceSpec.m in Sources */,
 				72E773FC1A9A87320042BA47 /* GNZArrayDataSourceSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
